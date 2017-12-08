@@ -93,6 +93,8 @@ public class Player {
             let cardNode = hand.hand[i]
             
             addCardToHand(cardNode: cardNode)
+            cardNode.size = CGSize(width: 240, height: 340)
+            cardNode.zRotation = CGFloat(Double(playerNum - 1) * Double.pi)
             
             cardNode.position = CGPoint(x:i * 80 + 120, y: 1634 - (playerNum * 1900)) //starts 500 off screen
             cardNode.zPosition = CGFloat(i)
@@ -114,8 +116,7 @@ public class Player {
         cardNode.card.state = .InHand
         cardNode.card.player = self
         cardNode.color = UIColor.white
-        cardNode.size = CGSize(width: 240, height: 340)
-        cardNode.zRotation = CGFloat(Double(playerNum - 1) * Double.pi)
+
         hand.add(c: cardNode)
         parent.addChild(cardNode)
     }
@@ -128,7 +129,7 @@ public class Player {
             
             staging[i].removeFromParent()
             
-            store.addToCurrentStore(cardNode: staging[i])
+            store.addToCurrentStore(cardNode: staging[i], withDelay: 0)
             
             staging.remove(at: i)
         }
@@ -137,20 +138,30 @@ public class Player {
     func moveFromStoreToHand(cardNode: CardNode){
         addCardToHand(cardNode: cardNode)
         
+        cardNode.run(SKAction.resize(toWidth: 240, height: 340, duration: 0.3))
+        let rotationAnimation = SKAction.rotate(toAngle: CGFloat(Double(playerNum - 1) * Double.pi), duration: 0.3)
+        rotationAnimation.timingMode = .easeInEaseOut
+        cardNode.run(rotationAnimation)
+        
         hand.sort(reversed: playerNum == 0)
         
         for i in 0..<hand.hand.count {
-            hand.hand[i].position = CGPoint(x:i * 80 + 120, y: 1334 - 200 - (playerNum * 900))
-            hand.hand[i].zPosition = CGFloat(i)
+            let moveAnimation = SKAction.move(to: CGPoint(x:i * 80 + 120, y: 1334 - 200 - (playerNum * 900)), duration: 0.3)
+            moveAnimation.timingMode = .easeInEaseOut
+            hand.hand[i].run(moveAnimation)
+            hand.hand[i].zPosition = CGFloat(i) + 100
+            
+            hand.hand[i].run(SKAction.sequence(
+                [SKAction.wait(forDuration: 0.3),
+                 SKAction.customAction(withDuration: 0.01) {node, elapsedTime in
+                    self.hand.hand[i].zPosition = self.hand.hand[i].zPosition - CGFloat(100)}
+                ]))
         }
+        
     }
     
     func moveFromHandToStaging(cardNode: CardNode){
-        if(playerNum == 0){
-            cardNode.position = CGPoint(x: cardNode.position.x, y: cardNode.position.y - 100)
-        } else {
-            cardNode.position = CGPoint(x: cardNode.position.x, y: cardNode.position.y + 100)
-        }
+        cardNode.run(SKAction.move(by: CGVector(dx: 0, dy: -100 + (200 * playerNum)), duration: 0.1))
         
         staging.append(cardNode)
         cardNode.card.state = .InStaging
@@ -159,11 +170,7 @@ public class Player {
     }
     
     func moveFromStagingToHand(cardNode: CardNode){
-        if(playerNum == 0){
-            cardNode.position = CGPoint(x: cardNode.position.x, y: cardNode.position.y + 100)
-        } else {
-            cardNode.position = CGPoint(x: cardNode.position.x, y: cardNode.position.y - 100)
-        }
+        cardNode.run(SKAction.move(by: CGVector(dx: 0, dy: 100 - (200 * playerNum)), duration: 0.1))
         
         for i in 0..<staging.count{
             if(cardNode.card.tag == staging[i].card.tag){

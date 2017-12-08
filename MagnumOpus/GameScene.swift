@@ -240,7 +240,7 @@ class GameScene: SKScene {
     }
     
     func animateMovingStore(withDelay: Double) {
-        let wait = SKAction.wait(forDuration: 0.1)
+        let wait = SKAction.wait(forDuration: withDelay)
         let moveAction = SKAction.move(to: CGPoint(x: 0, y: 150 + (484 * currentPlayer!.playerNum) ), duration: 0.5)
         moveAction.timingMode = .easeInEaseOut
         let sequence = SKAction.sequence([wait, moveAction])
@@ -249,7 +249,7 @@ class GameScene: SKScene {
         let buttonMoveAction = SKAction.move(by: CGVector(dx: 0, dy: (currentPlayer!.playerNum == 0 ? 186 : -186)), duration: 0.5)
         let buttonRotate = SKAction.rotate(byAngle: CGFloat(M_PI/1.0), duration: 0)
         buttonMoveAction.timingMode = .easeInEaseOut
-        let buttonSequence = SKAction.sequence([SKAction.wait(forDuration: 0.3) , buttonRotate, buttonMoveAction])
+        let buttonSequence = SKAction.sequence([SKAction.wait(forDuration: withDelay + 0.3), buttonRotate, buttonMoveAction])
         
         self.childNode(withName: "QuitButton")?.run(buttonSequence)
         self.childNode(withName: "PassButton")?.run(buttonSequence)

@@ -62,6 +62,7 @@ public class CardNode : SKSpriteNode{
     init(card: Card, imageNamed: String, color: UIColor, size: CGSize){
         self.card = card
         super.init(texture: SKTexture(imageNamed: imageNamed), color: color, size: size)
+        self.colorBlendFactor = 1
     }
     
     public required init?(coder aDecoder: NSCoder) {
