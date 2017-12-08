@@ -5,10 +5,10 @@ TODO:
 
 Sound design
 
-Two player to do: Fix lost animations. Win screen
-// Bugs: Top player's hand is right aligned. Only top player ever starts. Passing is broken
-// Design: Card rotates when in store? Backgroud. Number of cards in draw/discard or total?
-// Esitmated time: 3hr
+Two player to do: Win screen
+// Bugs: Top player's hand is right aligned. Only top player ever starts.
+// Design:  Backgroud. 
+// Esitmated time: 1 1/2hr
 
 Tutorial: Begin
 // Esitmated time: 4hr
