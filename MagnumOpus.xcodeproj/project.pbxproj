@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17312FCE1FD8CB380051AC04 /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17312FCD1FD8CB380051AC04 /* player.swift */; };
-		17312FD01FD8CB440051AC04 /* store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17312FCF1FD8CB440051AC04 /* store.swift */; };
-		17312FD21FD8CB720051AC04 /* card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17312FD11FD8CB720051AC04 /* card.swift */; };
+		174283EE1FDB2EC5003D33A3 /* card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174283ED1FDB2EC5003D33A3 /* card.swift */; };
+		174283F01FDB2ECF003D33A3 /* store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174283EF1FDB2ECF003D33A3 /* store.swift */; };
+		174283F21FDB2ED4003D33A3 /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174283F11FDB2ED4003D33A3 /* player.swift */; };
 		8302F5841FBBB6EA000EADE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8302F5831FBBB6EA000EADE4 /* AppDelegate.swift */; };
 		8302F5881FBBB6EA000EADE4 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8302F5871FBBB6EA000EADE4 /* Actions.sks */; };
 		8302F58C1FBBB6EA000EADE4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8302F58B1FBBB6EA000EADE4 /* GameViewController.swift */; };
@@ -86,9 +86,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		17312FCD1FD8CB380051AC04 /* player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = player.swift; path = ../../iOSFinal/MagnumOpus/player.swift; sourceTree = "<group>"; };
-		17312FCF1FD8CB440051AC04 /* store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = store.swift; path = ../../iOSFinal/MagnumOpus/store.swift; sourceTree = "<group>"; };
-		17312FD11FD8CB720051AC04 /* card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = card.swift; path = ../../iOSFinal/MagnumOpus/card.swift; sourceTree = "<group>"; };
+		174283ED1FDB2EC5003D33A3 /* card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = card.swift; sourceTree = "<group>"; };
+		174283EF1FDB2ECF003D33A3 /* store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = store.swift; sourceTree = "<group>"; };
+		174283F11FDB2ED4003D33A3 /* player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
 		8302F5801FBBB6EA000EADE4 /* MagnumOpus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagnumOpus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8302F5831FBBB6EA000EADE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8302F5871FBBB6EA000EADE4 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -215,12 +215,12 @@
 				834726D81FC69CC2009A65FC /* newMenu.swift */,
 				830797E51FBBD5B5001CDFCA /* deck.swift */,
 				830797E61FBBD5B5001CDFCA /* drawDeck.swift */,
-				17312FD11FD8CB720051AC04 /* card.swift */,
+				174283ED1FDB2EC5003D33A3 /* card.swift */,
 				830797E71FBBD5B5001CDFCA /* hand.swift */,
 				83718E4C1FD8C0BE00ADFD28 /* quitButton.png */,
-				17312FCD1FD8CB380051AC04 /* player.swift */,
+				174283F11FDB2ED4003D33A3 /* player.swift */,
 				830797F41FBCC4F8001CDFCA /* game.swift */,
-				17312FCF1FD8CB440051AC04 /* store.swift */,
+				174283EF1FDB2ECF003D33A3 /* store.swift */,
 				8302F5871FBBB6EA000EADE4 /* Actions.sks */,
 				8302F58B1FBBB6EA000EADE4 /* GameViewController.swift */,
 				8302F58D1FBBB6EA000EADE4 /* Main.storyboard */,
@@ -493,15 +493,15 @@
 				830797ED1FBBD5B5001CDFCA /* hand.swift in Sources */,
 				830797F51FBCC4F8001CDFCA /* game.swift in Sources */,
 				83718E4F1FD8C71600ADFD28 /* winScreen.swift in Sources */,
-				17312FD01FD8CB440051AC04 /* store.swift in Sources */,
+				174283F01FDB2ECF003D33A3 /* store.swift in Sources */,
+				174283EE1FDB2EC5003D33A3 /* card.swift in Sources */,
 				830797EC1FBBD5B5001CDFCA /* drawDeck.swift in Sources */,
-				17312FD21FD8CB720051AC04 /* card.swift in Sources */,
 				834726D51FC69B43009A65FC /* GameScene.swift in Sources */,
 				8302F58C1FBBB6EA000EADE4 /* GameViewController.swift in Sources */,
 				8302F5841FBBB6EA000EADE4 /* AppDelegate.swift in Sources */,
 				830797EB1FBBD5B5001CDFCA /* deck.swift in Sources */,
+				174283F21FDB2ED4003D33A3 /* player.swift in Sources */,
 				834D25791FCF6E2F006B7CFD /* nameScreen.swift in Sources */,
-				17312FCE1FD8CB380051AC04 /* player.swift in Sources */,
 				837AC18F1FCFA38900A25F0B /* naming.swift in Sources */,
 				834726D91FC69CC2009A65FC /* newMenu.swift in Sources */,
 			);
