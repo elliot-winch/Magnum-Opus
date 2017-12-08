@@ -12,8 +12,15 @@ import UIKit
 import GameplayKit
 import SceneKit
 
+/*
+ 
+ This class will now take you to the scene which has the same name as the taped node.
+ 
+ */
 
 class newMenu: SKScene {
+    
+    var sceneStrings = ["naming", "Tutorial"]
     
     var title:SKLabelNode!
     var backdrop: SKEmitterNode!
@@ -31,7 +38,7 @@ class newMenu: SKScene {
         
         let startButton = SKSpriteNode(imageNamed: "startStar2.png")
         self.addChild(startButton)
-        startButton.name = "begin two player"
+        startButton.name = sceneStrings[0]
         startButton.zPosition = 2
         startButton.position = CGPoint(x: 2, y: -440)
         startButton.size = CGSize(width: 90, height: 90)
@@ -41,7 +48,7 @@ class newMenu: SKScene {
         
         let tutorialButton = SKSpriteNode(imageNamed: "startStar2.png")
         self.addChild(tutorialButton)
-        tutorialButton.name = "tutorial"
+        tutorialButton.name = sceneStrings[1]
         tutorialButton.zPosition = 2
         tutorialButton.position = CGPoint(x: 0, y: 227)
         tutorialButton.size = CGSize(width: 80, height: 80)
@@ -120,64 +127,44 @@ class newMenu: SKScene {
     
         
         self.addChild(title)
-        
-        print("yo")
-        
+                
     }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let rotate = SKAction.rotate(byAngle: CGFloat(-M_PI * 1.5), duration: 0.5)
+        let rotate = SKAction.rotate(byAngle: CGFloat(-Double.pi * 1.5), duration: 0.5)
        
         for touch in touches {
             let location = touch.location(in: self)
             let node : SKNode = self.atPoint(location)
             
-                if node.name == "begin two player" {
-                print("Start two player game")
-                node.run(rotate)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    if let view = self.view as! SKView? {
-                        // Load the SKScene from 'newMenu.sks'
-                        if let scene = SKScene(fileNamed: "naming") {
-                            // Set the scale mode to scale to fit the window
-                            scene.scaleMode = .aspectFill
-                            let transition = SKTransition.fade(withDuration: 1)
-                            
-                            // Present the scene
-                            view.presentScene(scene, transition: transition)
-                        }
-                    }
-                    
-
-
-                }
-            }
-            if node.name == "tutorial"{
-                print("Tutorial")
-                node.run(rotate)
-                
-                
-            }
-            if node.name == "settings"{
-                print("Settings")
-                node.run(rotate)
-            }
-            if node.name == "credits"{
-                print("Credits")
-                node.run(rotate)
-            }
-            if node.name == "single player"{
-                print("Start Single-Player Game")
-                node.run(rotate)
-            }
+            node.run(rotate)
+            launchScene(named: node.name)
+            
         }
     }
     
-    override func update(_ currentTime: TimeInterval) {
-       
+    func launchScene(named: String?){
+        if(named == nil){
+            print("Error: Menu node not named")
+            return
+        }
+        
+        if(sceneStrings.contains(named!)){
+        
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            
+                if let scene = SKScene(fileNamed: named!) {
+                    scene.scaleMode = .aspectFill
+                    let transition = SKTransition.fade(withDuration: 1)
+                
+                    self.view!.presentScene(scene, transition: transition)
+                }
+            }
+        } else{
+            print("Failed to switch scene; no scene named: \(named!)")
+        }
     }
-   
 
 
 }

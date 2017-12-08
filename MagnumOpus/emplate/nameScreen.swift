@@ -20,7 +20,6 @@ class nameScene: SKScene {
     
     
     override func didMove(to view: SKView){
-        print("omg")
         let playerOneBox = UITextField()
         playerOneBox.font =  UIFont(name: "Eunomia.otf", size: 16)
         playerOneBox.borderStyle = UITextBorderStyle.roundedRect

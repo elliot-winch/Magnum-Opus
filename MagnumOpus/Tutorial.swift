@@ -1,15 +1,15 @@
-
-//  GameScene.swift
+//
+//  Tutorial.swift
 //  MagnumOpus
 //
-//  Created by Nina Demirjian on 11/14/17.
+//  Created by Elliot Richard John Winch on 12/8/17.
 //  Copyright © 2017 nyu.edu. All rights reserved.
 //
-//meat of game
-import SpriteKit
-import GameplayKit
 
-class GameScene: SKScene {
+import Foundation
+import SpriteKit
+
+class Tutorial : SKScene {
     
     var myView : UIViewController?
     
@@ -54,7 +54,7 @@ class GameScene: SKScene {
         nameLabelPlayerOne.position = CGPoint(x: 360, y: 450)
         GameScene.setLabelToStandard(label: nameLabelPlayerOne)
         self.addChild(nameLabelPlayerOne)
-
+        
         
         //Player Two Name Label
         let nameLabelPlayerTwo = SKLabelNode()
@@ -109,7 +109,7 @@ class GameScene: SKScene {
         
     }
     
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let positionInScene = touch.location(in: self)
@@ -185,11 +185,11 @@ class GameScene: SKScene {
                             self.view!.presentScene(scene, transition: transition)
                         }
                     }))
-
+                    
                     
                     alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
                     
-                        
+                    
                     GameViewController.instance.present(alert, animated: true, completion: nil)
                     
                     

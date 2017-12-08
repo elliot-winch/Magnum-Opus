@@ -12,67 +12,46 @@ public class Player {
     
     let playerNum : Int
     var parent : SKNode
-    var additionals : [SKNode]
     var staging : [CardNode]
     
     let drawDeck : DrawDeck
     let hand : Hand
     
-    var name : String
+    let drawNumLabel : SKLabelNode
+    let discardNumLabel : SKLabelNode
     
-    //    let drawingPileSizeText : SKLabelNode
-    //    let discardPileSizeText : SKLabelNode
-    //    let totalCardsSizeText : SKLabelNode
-    //    let drawDeckNode : SKSpriteNode
-    //    let discardPileNode : SKSpriteNode
+    var name : String
     
     init(id: Int, handSize: Int, parent: SKNode, name: String){
         playerNum = id
         drawDeck = DrawDeck()
         hand = Hand(handSize: handSize)
         staging = [CardNode]()
-        additionals = [SKNode]()
         self.name = name
         
         self.parent = parent
         
-        //        drawingPileSizeText = SKLabelNode(fontNamed: "Futura")
-        //        drawingPileSizeText.text = "0 "
-        //        drawingPileSizeText.fontName = String(18)
-        //        drawingPileSizeText.position = CGPoint(x: 140, y: 80)
-        //        parent.addChild(drawingPileSizeText)
-        //        additionals.append(drawingPileSizeText)
-        //
-        //        discardPileSizeText = SKLabelNode(fontNamed: "Futura")
-        //        discardPileSizeText.text = "0 "
-        //        discardPileSizeText.fontName = String(18)
-        //        discardPileSizeText.position = CGPoint(x: 580, y: 80)
-        //        parent.addChild(discardPileSizeText)
-        //        additionals.append(discardPileSizeText)
+        self.drawNumLabel = SKLabelNode()
+        drawNumLabel.name = "Player \(playerNum) Draw Label"
         
+        drawNumLabel.position = CGPoint(x: 680 - (640 * playerNum), y: 900 - (450 * playerNum))
+        drawNumLabel.zRotation = CGFloat(Double.pi - (Double.pi * Double(playerNum)))
         
-        //        totalCardsSizeText = SKLabelNode(fontNamed: "Chalkduster")
-        //        totalCardsSizeText.text = "0 "
-        //        drawingPileSizeText.position = CGPoint(x: 140, y: 75)
-        //        parent.addChild(totalCardsSizeText)
-        //        additionals.append(totalCardsSizeText)
-        //
-        //        drawDeckNode = SKSpriteNode(imageNamed: "invertedCardBack" /*will be back of card*/)
-        //        drawDeckNode.color = UIColor.white
-        //        drawDeckNode.anchorPoint = CGPoint(x:0.5,y:1)
-        //        drawDeckNode.size = CGSize(width: 240, height: 340)
-        //        drawDeckNode.position = CGPoint(x: 140, y: 75)
-        //        parent.addChild(drawDeckNode)
-        //        additionals.append(drawDeckNode)
-        //
-        //
-        //        discardPileNode = SKSpriteNode(imageNamed: "invertedCardBack" /*will be back of card*/)
-        //        discardPileNode.color = UIColor.white
-        //        discardPileNode.anchorPoint = CGPoint(x:0.5,y:1)
-        //        discardPileNode.size = CGSize(width: 240, height: 340)
-        //        discardPileNode.position = CGPoint(x: 580, y: 75)
-        //        parent.addChild(discardPileNode)
-        //        additionals.append(discardPileNode)
+        GameScene.setLabelToStandard(label: drawNumLabel)
+        
+        parent.addChild(drawNumLabel)
+        
+        self.discardNumLabel = SKLabelNode()
+        discardNumLabel.name = "Player \(playerNum) Discard Label"
+        
+        discardNumLabel.position = CGPoint(x: 40 + (640 * playerNum), y: 900 - (450 * playerNum))
+        discardNumLabel.zRotation = CGFloat(Double.pi - (Double.pi * Double(playerNum)))
+
+        
+        GameScene.setLabelToStandard(label: discardNumLabel)
+        
+        parent.addChild(discardNumLabel)
+
     }
     
     func drawFreshHand() -> Bool{
@@ -107,7 +86,8 @@ public class Player {
             cardNode.name = "card-" + String(cardNode.card.tag)
         }
         
-        //        setHideHand(b: true)
+        drawNumLabel.text = String(describing: String(describing: self.drawDeck.deck.count))
+        discardNumLabel.text = String(describing: self.drawDeck.discardPile.deck.count)
         
         return (isMeld(cardSlice: hand.hand[0...2]) && isMeld(cardSlice: hand.hand[3...6])) || (isMeld(cardSlice: hand.hand[0...3]) && isMeld(cardSlice: hand.hand[4...6]))
     }

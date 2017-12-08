@@ -10,6 +10,8 @@
 		174283EE1FDB2EC5003D33A3 /* card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174283ED1FDB2EC5003D33A3 /* card.swift */; };
 		174283F01FDB2ECF003D33A3 /* store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174283EF1FDB2ECF003D33A3 /* store.swift */; };
 		174283F21FDB2ED4003D33A3 /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174283F11FDB2ED4003D33A3 /* player.swift */; };
+		174283F41FDB4377003D33A3 /* Tutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = 174283F31FDB4377003D33A3 /* Tutorial.sks */; };
+		174283F61FDB4386003D33A3 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174283F51FDB4386003D33A3 /* Tutorial.swift */; };
 		8302F5841FBBB6EA000EADE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8302F5831FBBB6EA000EADE4 /* AppDelegate.swift */; };
 		8302F5881FBBB6EA000EADE4 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8302F5871FBBB6EA000EADE4 /* Actions.sks */; };
 		8302F58C1FBBB6EA000EADE4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8302F58B1FBBB6EA000EADE4 /* GameViewController.swift */; };
@@ -89,6 +91,8 @@
 		174283ED1FDB2EC5003D33A3 /* card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = card.swift; sourceTree = "<group>"; };
 		174283EF1FDB2ECF003D33A3 /* store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = store.swift; sourceTree = "<group>"; };
 		174283F11FDB2ED4003D33A3 /* player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
+		174283F31FDB4377003D33A3 /* Tutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tutorial.sks; sourceTree = "<group>"; };
+		174283F51FDB4386003D33A3 /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		8302F5801FBBB6EA000EADE4 /* MagnumOpus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagnumOpus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8302F5831FBBB6EA000EADE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8302F5871FBBB6EA000EADE4 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -206,13 +210,15 @@
 				83718E4E1FD8C71600ADFD28 /* winScreen.swift */,
 				83718E501FD8C71C00ADFD28 /* winScreen.sks */,
 				834D25761FCF6E01006B7CFD /* nameScreen.sks */,
+				174283F31FDB4377003D33A3 /* Tutorial.sks */,
+				174283F51FDB4386003D33A3 /* Tutorial.swift */,
 				83718E3F1FD89CE600ADFD28 /* GameScene.sks */,
-				834726D61FC69C95009A65FC /* newMenu.sks */,
-				834D25781FCF6E2F006B7CFD /* nameScreen.swift */,
-				837AC18C1FCFA1F200A25F0B /* naming.sks */,
-				837AC18E1FCFA38900A25F0B /* naming.swift */,
 				834726D41FC69B43009A65FC /* GameScene.swift */,
+				834726D61FC69C95009A65FC /* newMenu.sks */,
 				834726D81FC69CC2009A65FC /* newMenu.swift */,
+				837AC18C1FCFA1F200A25F0B /* naming.sks */,
+				834D25781FCF6E2F006B7CFD /* nameScreen.swift */,
+				837AC18E1FCFA38900A25F0B /* naming.swift */,
 				830797E51FBBD5B5001CDFCA /* deck.swift */,
 				830797E61FBBD5B5001CDFCA /* drawDeck.swift */,
 				174283ED1FDB2EC5003D33A3 /* card.swift */,
@@ -450,6 +456,7 @@
 				834D25771FCF6E01006B7CFD /* nameScreen.sks in Resources */,
 				837AC1911FCFACDC00A25F0B /* constellation1.png in Resources */,
 				838760511FCD135500EBFD07 /* inverted12.png in Resources */,
+				174283F41FDB4377003D33A3 /* Tutorial.sks in Resources */,
 				834726EB1FC6A322009A65FC /* Eunomiawfe.otf in Resources */,
 				8302F5941FBBB6EA000EADE4 /* LaunchScreen.storyboard in Resources */,
 				8387605F1FCD136E00EBFD07 /* inverted9.png in Resources */,
@@ -494,6 +501,7 @@
 				830797F51FBCC4F8001CDFCA /* game.swift in Sources */,
 				83718E4F1FD8C71600ADFD28 /* winScreen.swift in Sources */,
 				174283F01FDB2ECF003D33A3 /* store.swift in Sources */,
+				174283F61FDB4386003D33A3 /* Tutorial.swift in Sources */,
 				174283EE1FDB2EC5003D33A3 /* card.swift in Sources */,
 				830797EC1FBBD5B5001CDFCA /* drawDeck.swift in Sources */,
 				834726D51FC69B43009A65FC /* GameScene.swift in Sources */,
