@@ -158,6 +158,7 @@ class GameScene: SKScene {
                     for i in (0..<playersInRound.count).reversed(){
                         if(playersInRound[i] === currentPlayer!){
                             playersInRound.remove(at: i)
+                            print(playersInRound)
                         }
                         
                         if(passingPlayer == nil){
@@ -210,6 +211,7 @@ class GameScene: SKScene {
             
             //Start of round
             playersInRound.append(p)
+            print(playersInRound)
             
             if(p.drawFreshHand()){
                 print( "Player name has won!")
@@ -218,6 +220,7 @@ class GameScene: SKScene {
         
         if(passingPlayer != nil){
             currentPlayer = passingPlayer!
+            currentPlayerIndex = currentPlayer!.playerNum
             passingPlayer = nil
         }
         
@@ -230,9 +233,12 @@ class GameScene: SKScene {
         currentPlayer!.endTurn()
         
         let previousPlayer = currentPlayer!
+        print(previousPlayer.name)
         
         currentPlayerIndex+=1
         currentPlayer! = playersInRound[currentPlayerIndex % playersInRound.count]
+        print(currentPlayer!.name)
+        print("Current player index: " + String(describing: currentPlayerIndex))
         
         if(previousPlayer !== currentPlayer!){
             animateMovingStore(withDelay: withStoreAnimationDelay)

@@ -39,11 +39,9 @@ public class Store{
             let cardNode = CardNode(card: card, imageNamed: "inverted" + String(card.getRawValue()), color: UIColor.gray, size: CGSize(width: 180, height: 260))
             cardNode.name = "card-" + String(card.tag)
             
-            cardNode.position = CGPoint(x: -300,y: 425 - (i % 2) * 270)
             cardNode.zRotation = CGFloat(i % 2 == 0 ? Double.pi : Double(0))
-            print(cardNode.zRotation)
             
-            addToCurrentStore(cardNode: cardNode, withDelay: 0.5 - (0.1 * Double(i)))
+            addToCurrentStore(cardNode: cardNode, withDelay: 0.5 - (0.1 * Double(i)), withStartingPosition: CGPoint(x: -300,y: 425 - (i % 2) * 270))
             
         }
     }
@@ -54,21 +52,23 @@ public class Store{
         }
     }
     
-    func addToCurrentStore(cardNode: CardNode, withDelay: Double){
+    func addToCurrentStore(cardNode: CardNode, withDelay: Double, withStartingPosition: CGPoint){
+        cardNode.card.state = .InStore
+        
         for s : StoreSlot in spaces{
             s.age+=1
         }
         
         parent.addChild(cardNode)
-        
+        cardNode.position = withStartingPosition
         cardNode.zPosition = 31
         
         let space = findSpace()
         
-        cardNode.run(SKAction.sequence([SKAction.wait(forDuration: withDelay), SKAction.resize(toWidth: 180, height: 260, duration: 0.3)]))
-        cardNode.run(SKAction.sequence([SKAction.wait(forDuration: withDelay), SKAction.move(to: space.point, duration: 0.3)]))
+        cardNode.run(SKAction.sequence([SKAction.wait(forDuration: withDelay), SKAction.resize(toWidth: 180, height: 260, duration: 0.4)]))
+        cardNode.run(SKAction.sequence([SKAction.wait(forDuration: withDelay), SKAction.move(to: space.point, duration: 0.4)]))
         
-        cardNode.run(SKAction.sequence([SKAction.wait(forDuration: withDelay), SKAction.rotate(toAngle: CGFloat(space.orientation), duration: 0.3)]))
+        cardNode.run(SKAction.sequence([SKAction.wait(forDuration: withDelay), SKAction.rotate(toAngle: CGFloat(space.orientation), duration: 0.4)]))
         
         space.addCard(cardNode: cardNode)
         self.currentStore.append(cardNode)

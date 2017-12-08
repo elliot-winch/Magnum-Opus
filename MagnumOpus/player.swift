@@ -124,12 +124,10 @@ public class Player {
     func moveFromStagingToStore(store: Store){
         
         for i in (0..<staging.count).reversed(){
-            
-            staging[i].card.state = .InStore
-            
+                        
             staging[i].removeFromParent()
             
-            store.addToCurrentStore(cardNode: staging[i], withDelay: 0)
+            store.addToCurrentStore(cardNode: staging[i], withDelay: 0, withStartingPosition: CGPoint(x: staging[i].position.x - store.parent.position.x, y: staging[i].position.y - store.parent.position.y))
             
             staging.remove(at: i)
         }
