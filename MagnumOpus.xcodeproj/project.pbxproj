@@ -37,8 +37,6 @@
 		834D25711FCD2C7A006B7CFD /* glowOrb.png in Resources */ = {isa = PBXBuildFile; fileRef = 834D25701FCD2C7A006B7CFD /* glowOrb.png */; };
 		834D25731FCE28BC006B7CFD /* contellationBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 834D25721FCE28BC006B7CFD /* contellationBack.png */; };
 		834D25751FCE2DEC006B7CFD /* whiteStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 834D25741FCE2DEC006B7CFD /* whiteStar.png */; };
-		834D25771FCF6E01006B7CFD /* nameScreen.sks in Resources */ = {isa = PBXBuildFile; fileRef = 834D25761FCF6E01006B7CFD /* nameScreen.sks */; };
-		834D25791FCF6E2F006B7CFD /* nameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834D25781FCF6E2F006B7CFD /* nameScreen.swift */; };
 		83718E401FD89CE600ADFD28 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 83718E3F1FD89CE600ADFD28 /* GameScene.sks */; };
 		83718E431FD8B60F00ADFD28 /* moFont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83718E421FD8B4FA00ADFD28 /* moFont.otf */; };
 		83718E441FD8B66800ADFD28 /* moFont.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83718E421FD8B4FA00ADFD28 /* moFont.otf */; };
@@ -125,8 +123,6 @@
 		834D25701FCD2C7A006B7CFD /* glowOrb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glowOrb.png; sourceTree = "<group>"; };
 		834D25721FCE28BC006B7CFD /* contellationBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contellationBack.png; sourceTree = "<group>"; };
 		834D25741FCE2DEC006B7CFD /* whiteStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteStar.png; sourceTree = "<group>"; };
-		834D25761FCF6E01006B7CFD /* nameScreen.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = nameScreen.sks; sourceTree = "<group>"; };
-		834D25781FCF6E2F006B7CFD /* nameScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = nameScreen.swift; path = emplate/nameScreen.swift; sourceTree = "<group>"; };
 		83718E3F1FD89CE600ADFD28 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		83718E411FD8A92100ADFD28 /* DURALITH.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DURALITH.ttf; sourceTree = "<group>"; };
 		83718E421FD8B4FA00ADFD28 /* moFont.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = moFont.otf; path = eunomia/moFont.otf; sourceTree = "<group>"; };
@@ -182,55 +178,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8302F5771FBBB6EA000EADE4 = {
+		17EC737A1FDCA7A300529F4F /* TutorialScenes */ = {
 			isa = PBXGroup;
 			children = (
-				8302F5821FBBB6EA000EADE4 /* MagnumOpus */,
-				8302F59D1FBBB6EA000EADE4 /* MagnumOpusTests */,
-				8302F5A81FBBB6EA000EADE4 /* MagnumOpusUITests */,
-				8302F5811FBBB6EA000EADE4 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		8302F5811FBBB6EA000EADE4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8302F5801FBBB6EA000EADE4 /* MagnumOpus.app */,
-				8302F59A1FBBB6EA000EADE4 /* MagnumOpusTests.xctest */,
-				8302F5A51FBBB6EA000EADE4 /* MagnumOpusUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		8302F5821FBBB6EA000EADE4 /* MagnumOpus */ = {
-			isa = PBXGroup;
-			children = (
-				834726ED1FCB2B81009A65FC /* Particles */,
-				8302F5831FBBB6EA000EADE4 /* AppDelegate.swift */,
-				83718E4E1FD8C71600ADFD28 /* winScreen.swift */,
-				83718E501FD8C71C00ADFD28 /* winScreen.sks */,
-				834D25761FCF6E01006B7CFD /* nameScreen.sks */,
 				174283F31FDB4377003D33A3 /* Tutorial.sks */,
 				174283F51FDB4386003D33A3 /* Tutorial.swift */,
-				83718E3F1FD89CE600ADFD28 /* GameScene.sks */,
-				834726D41FC69B43009A65FC /* GameScene.swift */,
-				834726D61FC69C95009A65FC /* newMenu.sks */,
-				834726D81FC69CC2009A65FC /* newMenu.swift */,
+			);
+			name = TutorialScenes;
+			sourceTree = "<group>";
+		};
+		17EC737B1FDCA7B700529F4F /* NameScreen */ = {
+			isa = PBXGroup;
+			children = (
 				837AC18C1FCFA1F200A25F0B /* naming.sks */,
-				834D25781FCF6E2F006B7CFD /* nameScreen.swift */,
 				837AC18E1FCFA38900A25F0B /* naming.swift */,
+			);
+			name = NameScreen;
+			sourceTree = "<group>";
+		};
+		17EC737C1FDCA7F300529F4F /* GameScripts */ = {
+			isa = PBXGroup;
+			children = (
 				830797E51FBBD5B5001CDFCA /* deck.swift */,
 				830797E61FBBD5B5001CDFCA /* drawDeck.swift */,
 				174283ED1FDB2EC5003D33A3 /* card.swift */,
 				830797E71FBBD5B5001CDFCA /* hand.swift */,
-				83718E4C1FD8C0BE00ADFD28 /* quitButton.png */,
 				174283F11FDB2ED4003D33A3 /* player.swift */,
 				830797F41FBCC4F8001CDFCA /* game.swift */,
 				174283EF1FDB2ECF003D33A3 /* store.swift */,
-				8302F5871FBBB6EA000EADE4 /* Actions.sks */,
-				8302F58B1FBBB6EA000EADE4 /* GameViewController.swift */,
-				8302F58D1FBBB6EA000EADE4 /* Main.storyboard */,
-				8302F5901FBBB6EA000EADE4 /* Assets.xcassets */,
+				83718E3F1FD89CE600ADFD28 /* GameScene.sks */,
+				834726D41FC69B43009A65FC /* GameScene.swift */,
+			);
+			name = GameScripts;
+			sourceTree = "<group>";
+		};
+		17EC737D1FDCA84800529F4F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
 				837AC1961FD0A93000A25F0B /* invertedCardBack.png */,
 				837AC1941FCFADA600A25F0B /* constellation3.png */,
 				837AC1921FCFAD5700A25F0B /* constellation2.png */,
@@ -258,6 +242,56 @@
 				834726F81FCB6385009A65FC /* Simpleness2.otf */,
 				83718E411FD8A92100ADFD28 /* DURALITH.ttf */,
 				83718E421FD8B4FA00ADFD28 /* moFont.otf */,
+				83718E4C1FD8C0BE00ADFD28 /* quitButton.png */,
+				834726D81FC69CC2009A65FC /* newMenu.swift */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		17EC737E1FDCA88200529F4F /* WinScreen */ = {
+			isa = PBXGroup;
+			children = (
+				83718E501FD8C71C00ADFD28 /* winScreen.sks */,
+				83718E4E1FD8C71600ADFD28 /* winScreen.swift */,
+			);
+			name = WinScreen;
+			sourceTree = "<group>";
+		};
+		8302F5771FBBB6EA000EADE4 = {
+			isa = PBXGroup;
+			children = (
+				8302F5821FBBB6EA000EADE4 /* MagnumOpus */,
+				8302F59D1FBBB6EA000EADE4 /* MagnumOpusTests */,
+				8302F5A81FBBB6EA000EADE4 /* MagnumOpusUITests */,
+				8302F5811FBBB6EA000EADE4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8302F5811FBBB6EA000EADE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8302F5801FBBB6EA000EADE4 /* MagnumOpus.app */,
+				8302F59A1FBBB6EA000EADE4 /* MagnumOpusTests.xctest */,
+				8302F5A51FBBB6EA000EADE4 /* MagnumOpusUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8302F5821FBBB6EA000EADE4 /* MagnumOpus */ = {
+			isa = PBXGroup;
+			children = (
+				834726ED1FCB2B81009A65FC /* Particles */,
+				8302F5831FBBB6EA000EADE4 /* AppDelegate.swift */,
+				17EC737A1FDCA7A300529F4F /* TutorialScenes */,
+				17EC737B1FDCA7B700529F4F /* NameScreen */,
+				17EC737C1FDCA7F300529F4F /* GameScripts */,
+				834726D61FC69C95009A65FC /* newMenu.sks */,
+				17EC737E1FDCA88200529F4F /* WinScreen */,
+				17EC737D1FDCA84800529F4F /* Assets */,
+				8302F5871FBBB6EA000EADE4 /* Actions.sks */,
+				8302F58B1FBBB6EA000EADE4 /* GameViewController.swift */,
+				8302F58D1FBBB6EA000EADE4 /* Main.storyboard */,
+				8302F5901FBBB6EA000EADE4 /* Assets.xcassets */,
 				834726E41FC6A322009A65FC /* eunomia */,
 				8302F5921FBBB6EA000EADE4 /* LaunchScreen.storyboard */,
 				8302F5951FBBB6EA000EADE4 /* Info.plist */,
@@ -453,7 +487,6 @@
 				838760641FCD136E00EBFD07 /* inverted8.png in Resources */,
 				8302F5911FBBB6EA000EADE4 /* Assets.xcassets in Resources */,
 				834726EA1FC6A322009A65FC /* Eunomia-Light.otf in Resources */,
-				834D25771FCF6E01006B7CFD /* nameScreen.sks in Resources */,
 				837AC1911FCFACDC00A25F0B /* constellation1.png in Resources */,
 				838760511FCD135500EBFD07 /* inverted12.png in Resources */,
 				174283F41FDB4377003D33A3 /* Tutorial.sks in Resources */,
@@ -509,7 +542,6 @@
 				8302F5841FBBB6EA000EADE4 /* AppDelegate.swift in Sources */,
 				830797EB1FBBD5B5001CDFCA /* deck.swift in Sources */,
 				174283F21FDB2ED4003D33A3 /* player.swift in Sources */,
-				834D25791FCF6E2F006B7CFD /* nameScreen.swift in Sources */,
 				837AC18F1FCFA38900A25F0B /* naming.swift in Sources */,
 				834726D91FC69CC2009A65FC /* newMenu.swift in Sources */,
 			);
