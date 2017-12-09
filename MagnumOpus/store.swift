@@ -88,6 +88,15 @@ public class Store{
             }
         }
         
+        let toRemove = max.cardNode!
+        
+        let shrinkAnimation = SKAction.resize(toWidth:0, height:0, duration: 0.2)
+        let deleteAnimation = SKAction.customAction(withDuration: 0.01) { node, elaspedTime in
+            toRemove.removeFromParent() }
+        
+        toRemove.run(SKAction.sequence([shrinkAnimation, deleteAnimation]))
+        
+        
         return max
     }
     

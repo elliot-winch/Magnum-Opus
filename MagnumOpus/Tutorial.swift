@@ -13,8 +13,6 @@ class Tutorial : SKScene {
     
     var myView : UIViewController?
     
-    var playerOneName : String = "Player One"
-    var playerTwoName : String = "Player Two"
     var players : [Player]
     var playersInRound : [Player]
     var currentPlayer : Player?
@@ -39,33 +37,6 @@ class Tutorial : SKScene {
     }
     
     override func didMove(to view: SKView) {
-        
-        playerOneName = GameViewController.playerOneName
-        playerTwoName = GameViewController.playerTwoName
-        
-        players[0].name = playerOneName
-        players[1].name = playerTwoName
-        
-        //Player One Name Label
-        let nameLabelPlayerOne = SKLabelNode()
-        nameLabelPlayerOne.name = "Player One Label"
-        nameLabelPlayerOne.text = playerOneName
-        
-        nameLabelPlayerOne.position = CGPoint(x: 360, y: 450)
-        GameScene.setLabelToStandard(label: nameLabelPlayerOne)
-        self.addChild(nameLabelPlayerOne)
-        
-        
-        //Player Two Name Label
-        let nameLabelPlayerTwo = SKLabelNode()
-        nameLabelPlayerTwo.name = "Player Two Label"
-        nameLabelPlayerTwo.text = playerTwoName
-        
-        nameLabelPlayerTwo.zRotation = CGFloat.pi
-        nameLabelPlayerTwo.position = CGPoint(x: 360, y: 900)
-        GameScene.setLabelToStandard(label: nameLabelPlayerTwo)
-        self.addChild(nameLabelPlayerTwo)
-        
         
         if(players.count < 2){
             print("Increase number of players, son")
@@ -247,7 +218,7 @@ class Tutorial : SKScene {
         self.childNode(withName: "StoreBackground")!.run(sequence)
         
         let buttonMoveAction = SKAction.move(by: CGVector(dx: 0, dy: (currentPlayer!.playerNum == 0 ? 186 : -186)), duration: 0.5)
-        let buttonRotate = SKAction.rotate(byAngle: CGFloat(M_PI/1.0), duration: 0)
+        let buttonRotate = SKAction.rotate(byAngle: CGFloat(Double.pi/1.0), duration: 0)
         buttonMoveAction.timingMode = .easeInEaseOut
         let buttonSequence = SKAction.sequence([SKAction.wait(forDuration: withDelay + 0.3), buttonRotate, buttonMoveAction])
         

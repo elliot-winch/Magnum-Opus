@@ -67,7 +67,7 @@ class GameScene: SKScene {
         self.addChild(nameLabelPlayerTwo)
         
         
-        if(players.count < 2){
+        if(players.count != 2){
             print("Increase number of players, son")
         }
         

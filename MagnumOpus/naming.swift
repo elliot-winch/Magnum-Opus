@@ -70,8 +70,36 @@ class naming: SKScene {
                     // Set the scale mode to scale to fit the window
                     scene.scaleMode = .aspectFill
                     let transition = SKTransition.fade(withDuration: 1)
-                    GameViewController.playerOneName = (playerOneBox.text?.uppercased())!
-                    GameViewController.playerTwoName = (playerTwoBox.text?.uppercased())!
+                    
+                    
+                    let maxLength = 12
+                    
+                    let playerOneText = playerOneBox.text!.uppercased()
+                    
+                    if(playerOneText.characters.count > maxLength){
+                        var shortenedName = String()
+                        let stringArray = Array(playerOneText.characters)
+                        for i in 0..<maxLength{
+                            shortenedName.append(stringArray[i])
+                        }
+                        GameViewController.playerOneName = shortenedName
+                    } else {
+                        GameViewController.playerOneName = playerOneText
+                    }
+                    
+                    let playerTwoText = playerOneBox.text!.uppercased()
+                    
+                    if(playerTwoText.characters.count > maxLength){
+                        var shortenedName = String()
+                        let stringArray = Array(playerTwoText.characters)
+                        for i in 0..<maxLength{
+                            shortenedName.append(stringArray[i])
+                        }
+                        GameViewController.playerTwoName = shortenedName
+                    } else {
+                        GameViewController.playerTwoName = playerTwoText
+                    }
+
                     playerOneBox.removeFromSuperview()
                     playerTwoBox.removeFromSuperview()
                     // Present the scene
