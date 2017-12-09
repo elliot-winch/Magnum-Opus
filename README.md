@@ -16,7 +16,7 @@ Tutorial: Begin
 Single player: Begin
 // Esitmated time: 2hr
 
-Settings: Begin
+Settings: Volume/Mute, Change Card Design, 
 // Esitmated time: 1hr
 
 Tri-fold board: Begin
