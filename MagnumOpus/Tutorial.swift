@@ -20,13 +20,46 @@ class Tutorial : SKScene {
     var currentPlayerIndex : Int
     var store : Store
     
+    var pausedForTutorial : Bool
+    let tutorialBoxLabel : SKLabelNode
+    let tutorialBoxBackground : SKSpriteNode
+    var tutorialBoxPositions = [CGPoint]()
+    var tutorialBoxTexts = [String]()
+    var tutorialBoxSizes = [CGSize]()
+    var currentTipIndex = -1
+    
+    
     required init?(coder aDecoder: NSCoder) {
+        tutorialBoxPositions.append(CGPoint(x: 300, y:300))
+        tutorialBoxTexts.append("It's a welcome!")
+        tutorialBoxSizes.append(CGSize(width: 100, height: 100))
+        
+        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        tutorialBoxTexts.append("It's a continuation!")
+        tutorialBoxSizes.append(CGSize(width: 150, height: 50))
+
+        
         players = [Player]()
         playersInRound = [Player]()
         store = Store()
         
         self.currentPlayerIndex = 0
         
+        pausedForTutorial = true
+        
+        tutorialBoxLabel = SKLabelNode()
+        tutorialBoxLabel.name = "Tutorial Box"
+        tutorialBoxLabel.fontName = "My Font"
+        tutorialBoxLabel.fontSize = 30
+        tutorialBoxLabel.horizontalAlignmentMode = .center
+        tutorialBoxLabel.verticalAlignmentMode = .top
+        tutorialBoxLabel.zPosition = 1000
+        
+        tutorialBoxBackground = SKSpriteNode(color: UIColor.blue, size: CGSize(width: 300, height: 300))
+        tutorialBoxBackground.alpha = 0.2
+        tutorialBoxBackground.zPosition = 1000
+        tutorialBoxBackground.name = "Tutorial Box"
+
         super.init(coder: aDecoder)
         players.append(Player(id: 0, handSize: 7, parent: self, name : ""))
         players.append(Player(id: 1, handSize: 7, parent: self, name : ""))
@@ -34,11 +67,43 @@ class Tutorial : SKScene {
         currentPlayer = players[currentPlayerIndex]
         
         store.parent = self.childNode(withName: "StoreBackground")!
+        self.addChild(tutorialBoxLabel)
+        tutorialBoxLabel.addChild(tutorialBoxBackground)
+        
+        displayNextTutorialTip()
+
+    }
+    
+    func displayNextTutorialTip(){
+        currentTipIndex+=1
+
+        if(currentTipIndex >= tutorialBoxTexts.count){
+            print("Tutorial is finished")
+            return
+        }
+        
+        tutorialBoxLabel.isHidden = false
+        
+        let moveAnimation = SKAction.move(to: tutorialBoxPositions[currentTipIndex], duration: 0.2)
+        moveAnimation.timingMode = .easeInEaseOut
+        
+        let changeText = SKAction.customAction(withDuration: 0.001) { node, elaspedTime in
+            self.tutorialBoxLabel.text = self.tutorialBoxTexts[self.currentTipIndex]
+        }
+        
+        let changeTextAnimation = SKAction.sequence([SKAction.fadeOut(withDuration: 0.1), changeText, SKAction.fadeIn(withDuration: 0.1)])
+        
+        tutorialBoxLabel.run(moveAnimation)
+        tutorialBoxLabel.run(changeTextAnimation)
+        tutorialBoxBackground.run(SKAction.resize(toWidth: tutorialBoxSizes[currentTipIndex].width, height:tutorialBoxSizes[currentTipIndex].height, duration: 0.2))
+        
+        pausedForTutorial = true
+
     }
     
     override func didMove(to view: SKView) {
         
-        if(players.count < 2){
+        if(players.count != 2){
             print("Increase number of players, son")
         }
         
@@ -71,59 +136,49 @@ class Tutorial : SKScene {
         store.roundStart()
     }
     
-    static func setLabelToStandard(label: SKLabelNode){
-        label.fontName = "My Font"
-        label.fontSize = 100
-        label.horizontalAlignmentMode = .center
-        label.verticalAlignmentMode = .center
-        label.zPosition = 5
-        
-    }
-    
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene) as? SKSpriteNode
         
         if(touchedNode != nil){
-            if let cardNode = touchedNode as? CardNode{
-                
-                switch(cardNode.card.state){
-                case State.InHand:
-                    if(cardNode.card.player === currentPlayer){
-                        currentPlayer!.moveFromHandToStaging(cardNode: cardNode)
-                        
+            if(pausedForTutorial == false){
+                if let cardNode = touchedNode as? CardNode{
+                    switch(cardNode.card.state){
+                    case State.InHand:
+                        if(cardNode.card.player === currentPlayer){
+                            currentPlayer!.moveFromHandToStaging(cardNode: cardNode)
+                            
+                            if(isMeld(cards: currentPlayer!.staging)){
+                                store.changeAllColor(color: UIColor.white)
+                            } else {
+                                store.changeAllColor(color: UIColor.gray)
+                            }
+                        }
+                    
+                    case State.InStaging:
+                        currentPlayer!.moveFromStagingToHand(cardNode: cardNode)
+                    
                         if(isMeld(cards: currentPlayer!.staging)){
                             store.changeAllColor(color: UIColor.white)
                         } else {
                             store.changeAllColor(color: UIColor.gray)
                         }
-                    }
-                    
-                case State.InStaging:
-                    currentPlayer!.moveFromStagingToHand(cardNode: cardNode)
-                    
-                    if(isMeld(cards: currentPlayer!.staging)){
-                        store.changeAllColor(color: UIColor.white)
-                    } else {
-                        store.changeAllColor(color: UIColor.gray)
-                    }
-                case State.InStore:
-                    if(isMeld(cards: currentPlayer!.staging)){
-                        store.removeFromCurrentStore(cardNode: cardNode)
-                        currentPlayer!.moveFromStoreToHand(cardNode: cardNode)
-                        currentPlayer!.moveFromStagingToStore(store: store)
-                        store.changeAllColor(color: UIColor.gray)
+                    case State.InStore:
+                        if(isMeld(cards: currentPlayer!.staging)){
+                            store.removeFromCurrentStore(cardNode: cardNode)
+                            currentPlayer!.moveFromStoreToHand(cardNode: cardNode)
+                            currentPlayer!.moveFromStagingToStore(store: store)
+                            store.changeAllColor(color: UIColor.gray)
                         
-                        endTurn(withStoreAnimationDelay: 0.6)
+                            endTurn(withStoreAnimationDelay: 0.6)
+                        }
+                    case State.InDeck:
+                        print("Error: Card with state 'InDeck' should not be displayed")
                     }
-                case State.InDeck:
-                    print("Error: Card with state 'InDeck' should not be displayed")
                 }
-                
             } else {
-                if (touchedNode!.name == "PassButton"){
+                if (pausedForTutorial == false && touchedNode!.name == "PassButton"){
                     
                     for i in (0..<playersInRound.count).reversed(){
                         if(playersInRound[i] === currentPlayer!){
@@ -162,9 +217,9 @@ class Tutorial : SKScene {
                     
                     
                     GameViewController.instance.present(alert, animated: true, completion: nil)
-                    
-                    
-                    
+                }
+                else if (touchedNode!.name == "Tutorial Box"){
+                    displayNextTutorialTip()
                 }
             }
         }
