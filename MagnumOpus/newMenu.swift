@@ -14,13 +14,13 @@ import SceneKit
 
 /*
  
- This class will now take you to the scene which has the same name as the taped node.
+ This class will now take you to the scene which has the same name as the tapped node.
  
  */
 
 class newMenu: SKScene {
     
-    var sceneStrings = ["naming", "Tutorial"]
+    var sceneStrings = ["naming", "TutorialIntro"]
     
     var title:SKLabelNode!
     var backdrop: SKEmitterNode!
@@ -138,9 +138,11 @@ class newMenu: SKScene {
             let location = touch.location(in: self)
             let node : SKNode = self.atPoint(location)
             
-            node.run(rotate)
-            launchScene(named: node.name)
-            
+            //Bug!
+            if node? != nil && (sceneStrings.contains(node.name!)){
+                node.run(rotate)
+                launchScene(named: node.name)
+            }
         }
     }
     

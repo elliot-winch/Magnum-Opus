@@ -12,6 +12,8 @@
 		174283F21FDB2ED4003D33A3 /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174283F11FDB2ED4003D33A3 /* player.swift */; };
 		174283F41FDB4377003D33A3 /* Tutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = 174283F31FDB4377003D33A3 /* Tutorial.sks */; };
 		174283F61FDB4386003D33A3 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174283F51FDB4386003D33A3 /* Tutorial.swift */; };
+		17EC73801FDCA8F800529F4F /* TutorialIntro.sks in Resources */ = {isa = PBXBuildFile; fileRef = 17EC737F1FDCA8F800529F4F /* TutorialIntro.sks */; };
+		17EC73821FDCA90800529F4F /* TutorialIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EC73811FDCA90800529F4F /* TutorialIntro.swift */; };
 		8302F5841FBBB6EA000EADE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8302F5831FBBB6EA000EADE4 /* AppDelegate.swift */; };
 		8302F5881FBBB6EA000EADE4 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8302F5871FBBB6EA000EADE4 /* Actions.sks */; };
 		8302F58C1FBBB6EA000EADE4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8302F58B1FBBB6EA000EADE4 /* GameViewController.swift */; };
@@ -91,6 +93,8 @@
 		174283F11FDB2ED4003D33A3 /* player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
 		174283F31FDB4377003D33A3 /* Tutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tutorial.sks; sourceTree = "<group>"; };
 		174283F51FDB4386003D33A3 /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
+		17EC737F1FDCA8F800529F4F /* TutorialIntro.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TutorialIntro.sks; sourceTree = "<group>"; };
+		17EC73811FDCA90800529F4F /* TutorialIntro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialIntro.swift; sourceTree = "<group>"; };
 		8302F5801FBBB6EA000EADE4 /* MagnumOpus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagnumOpus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8302F5831FBBB6EA000EADE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8302F5871FBBB6EA000EADE4 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -183,6 +187,8 @@
 			children = (
 				174283F31FDB4377003D33A3 /* Tutorial.sks */,
 				174283F51FDB4386003D33A3 /* Tutorial.swift */,
+				17EC737F1FDCA8F800529F4F /* TutorialIntro.sks */,
+				17EC73811FDCA90800529F4F /* TutorialIntro.swift */,
 			);
 			name = TutorialScenes;
 			sourceTree = "<group>";
@@ -467,6 +473,7 @@
 				834726EC1FC6A322009A65FC /* OFL.txt in Resources */,
 				834726F71FCB61D1009A65FC /* startStar2.png in Resources */,
 				838760621FCD136E00EBFD07 /* inverted10.png in Resources */,
+				17EC73801FDCA8F800529F4F /* TutorialIntro.sks in Resources */,
 				837AC18D1FCFA1F200A25F0B /* naming.sks in Resources */,
 				834D25751FCE2DEC006B7CFD /* whiteStar.png in Resources */,
 				83718E4B1FD8BFC800ADFD28 /* passButton.png in Resources */,
@@ -535,6 +542,7 @@
 				83718E4F1FD8C71600ADFD28 /* winScreen.swift in Sources */,
 				174283F01FDB2ECF003D33A3 /* store.swift in Sources */,
 				174283F61FDB4386003D33A3 /* Tutorial.swift in Sources */,
+				17EC73821FDCA90800529F4F /* TutorialIntro.swift in Sources */,
 				174283EE1FDB2EC5003D33A3 /* card.swift in Sources */,
 				830797EC1FBBD5B5001CDFCA /* drawDeck.swift in Sources */,
 				834726D51FC69B43009A65FC /* GameScene.swift in Sources */,

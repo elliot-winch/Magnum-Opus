@@ -27,7 +27,7 @@ public class Card {
     var state : State
     var player : Player?
     
-    init(value: Value, tag : Int, player: Player){
+    init(value: Value, tag : Int, player: Player?){
         self.value = value
         self.tag = tag
         
