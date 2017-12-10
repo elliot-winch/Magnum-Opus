@@ -36,8 +36,9 @@ class TutorialIntro : SKScene {
         mainLabelStrings.append(["This hand has a run of 4", "(A, 2, 3, 4)", "and three of a kind", "(J, J, J)"])
         mainLabelStrings.append(["Here is another example of a winning hand.", "It has a run of three", "(4, 5, 6)", "and a run of four.", "(J, Q, K, A)"])
         mainLabelStrings.append(["Here is another example of a winning hand.", "It has three of a kind", "(10, 10, 10)", "and four of a kind.", "(Q, Q, Q, Q)"])
-        mainLabelStrings.append(["At the beginning of the game," , "you are given 26 cards.", "", "This is your personal draw deck.", "Any cards you discard go into", "you own personal discard pile."])
-
+        mainLabelStrings.append(["At the beginning of the game," , "you are dealt 26 cards.", "", "This is your personal draw deck.", "Any cards you discard go into", "you own personal discard pile."])
+        
+        
         
         fontSizes.append(64)
         fontSizes.append(48)
@@ -97,7 +98,7 @@ class TutorialIntro : SKScene {
             self.cardParent.addChild(cardNode)
             
             cardNode.position = CGPoint(x:i * 80 - 230, y: -1000) //starts 500 off screen
-            cardNode.zPosition = CGFloat(i)
+            cardNode.zPosition = CGFloat(i) + 1
             
             let cardMoveInAnimation = SKAction.move(by: CGVector(dx: 0, dy: 900), duration: 1.2)
             cardMoveInAnimation.timingMode = .easeInEaseOut
