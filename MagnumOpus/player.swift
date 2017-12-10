@@ -54,11 +54,31 @@ public class Player {
 
     }
     
-    func drawFreshHand() -> Bool{
-        for _ in 0..<hand.getMaxHandSize(){
-            let card = drawDeck.draw();
+    func drawFreshHand() -> Bool {
+        return drawFreshHand(values: nil)
+    }
+    
+    func drawFreshHand(values: [Int]?) -> Bool{
+        //For tutorial purposes. N.B. not a sustainable way to run a game, as card references are lost!
+        if(values != nil){
+            if(values!.count != hand.getMaxHandSize()){
+                print("Error: Custom values array for drawing hand incorrect size")
+                return false
+            }
             
-            hand.add(c: CardNode(card: card, imageNamed: cardSetSelected + String(card.getRawValue()), color: UIColor.white, size: CGSize(width:240,height:340)))
+            for i in 0..<values!.count{
+                drawDeck.draw()
+                
+                let card = Card(value: values![i], tag: values![i] + 1000)
+                
+                hand.add(c: CardNode(card: card, imageNamed: cardSetSelected + String(card.getRawValue()), color: UIColor.white, size: CGSize(width:240,height:340)))
+            }
+        } else{
+            for _ in 0..<hand.getMaxHandSize(){
+                let card = drawDeck.draw();
+            
+                hand.add(c: CardNode(card: card, imageNamed: cardSetSelected + String(card.getRawValue()), color: UIColor.white, size: CGSize(width:240,height:340)))
+            }
         }
         
         //        drawingPileSizeText.text = String(drawDeck.deck.count)

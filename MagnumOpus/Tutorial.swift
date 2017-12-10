@@ -28,89 +28,98 @@ class Tutorial : SKScene {
     let maxLines = 5
     var currentTipIndex = -1
     var events = [Int: () -> ()]()
+    var pickAnyCard = false
+    var requiredCard : CardNode?
+    var requiredState : State? //card state (ie in store, in deck, in hand)
     
     
     required init?(coder aDecoder: NSCoder) {
-        
+        //Event 0
         tutorialBoxPositions.append(CGPoint(x: 360, y:450))
         tutorialBoxTexts.append(["Press Me To Continue The Tutorial!"])
         
+        //1
         tutorialBoxPositions.append(CGPoint(x: 360, y:450))
         tutorialBoxTexts.append(["This is your hand"])
         
+        //2
         tutorialBoxPositions.append(CGPoint(x: 360, y:1250))
         tutorialBoxTexts.append(["This is your opponent's hand.","Magnum Opus is played open handed"])
-        
-        tutorialBoxPositions.append(CGPoint(x: 50, y:520))
+        //3
+        tutorialBoxPositions.append(CGPoint(x: 150, y: 600))
         tutorialBoxTexts.append(["This number is the", "number of cards", "in your draw deck"])
-        
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
-        tutorialBoxTexts.append(["This number is the number of cards", "in your discard pile"])
-        
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
-        tutorialBoxTexts.append(["This is the store", "We will come back to this shortly"])
-        
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        //4
+        tutorialBoxPositions.append(CGPoint(x: 570, y:600))
+        tutorialBoxTexts.append(["This number is the", "number of cards", "in your discard pile"])
+        //5
+        tutorialBoxPositions.append(CGPoint(x: 540, y:1000))
+        tutorialBoxTexts.append(["This is the store", "We will come back", "to this shortly"])
+        //6
+        tutorialBoxPositions.append(CGPoint(x: 360, y:505))
         tutorialBoxTexts.append(["At the start of the round,", "you draw seven cards from", "your draw deck"])
-        
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        //7
+        tutorialBoxPositions.append(CGPoint(x: 360, y:505))
         tutorialBoxTexts.append(["If there are not enough cards", "in your draw deck,", "you shuffle your discard pile", "and it becomes your draw deck"])
-        
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        //8
+        tutorialBoxPositions.append(CGPoint(x: 360, y:505))
         tutorialBoxTexts.append(["Once you have draw your hand,", "you check to see if", "you have won"])
-        
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        //9
+        tutorialBoxPositions.append(CGPoint(x: 360, y:505))
         tutorialBoxTexts.append(["Remember:", "this means you've drawn", "a meld of three and", "a meld of four"])
-        
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        //10
+        tutorialBoxPositions.append(CGPoint(x: 360, y:480))
         tutorialBoxTexts.append(["If neither player has won,", "you play the round"])
-        
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
-        tutorialBoxTexts.append(["Players take it in turns", "to trade meld of size", "two or greater", "for a single card in the store"])
-        
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
-        tutorialBoxTexts.append(["Try it now!", "Trade in the 4 and the 5", "in your hand", "for the Q on the store"])
-        
+        //11
+        tutorialBoxPositions.append(CGPoint(x: 540, y:1000))
+        tutorialBoxTexts.append(["Players take it in turns", "to trade meld of size", "two or greater", "for a single card", "in the store"])
+        //12
+        tutorialBoxPositions.append(CGPoint(x: 600, y:1000))
+        tutorialBoxTexts.append(["Let's trade the 4", "and the 5 in", "your hand for a", "card in the store"])
+        //13
         //Touch lock off
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        tutorialBoxPositions.append(CGPoint(x: 120, y:580))
         tutorialBoxTexts.append(["Tap on the 4", "to select it"])
-        
+        //14
         //Touch lock off
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        tutorialBoxPositions.append(CGPoint(x: 200, y:580))
         tutorialBoxTexts.append(["Tap on the 5", "to select it too"])
-        
+        //15
         //Touch lock off
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        tutorialBoxPositions.append(CGPoint(x: 540, y:1000))
         tutorialBoxTexts.append(["The store lights up", "if you have selected", "a valid meld"])
-        
+        //16
+        tutorialBoxPositions.append(CGPoint(x: 540, y:1000))
+        tutorialBoxTexts.append(["The store can hold", "up to eight cards"])
+        //17
         //Touch lock off
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
-        tutorialBoxTexts.append(["Reminder: a valid meld for trading", "is a run or of-a-kind", "of size two or greater"])
-        
+        tutorialBoxPositions.append(CGPoint(x: 540, y:1000))
+        tutorialBoxTexts.append(["Reminder: ", "a valid meld for trading", "is a run or of-a-kind", "of size two or greater"])
+        //18
+        //Touch lock off
         //only touch the store card
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
-        tutorialBoxTexts.append(["Good!", "Now it is your opponent's turn"])
+        tutorialBoxPositions.append(CGPoint(x: 540, y:1000))
+        tutorialBoxTexts.append(["Pick any card", "from the store.", "It will be added", "to your hand."])
+        //19
+        tutorialBoxPositions.append(CGPoint(x: 540, y:1000))
+        tutorialBoxTexts.append(["Good!", "Now it is your", "opponent's turn"])
         
-        //oppoent takes turn
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        //20
+        tutorialBoxPositions.append(CGPoint(x: 360, y:935 ))
         tutorialBoxTexts.append(["You take turns to trade", "cards with the store", "until both players", "hit the pass button"])
         
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
-        tutorialBoxTexts.append(["The store can hold", "up to eight cards"])
-        
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        tutorialBoxPositions.append(CGPoint(x: 360, y:935))
         tutorialBoxTexts.append(["If you are happy with your hand,", "or you cannot make any more trades", "you can pass for the rest of the round"])
         
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        tutorialBoxPositions.append(CGPoint(x: 360, y:935))
         tutorialBoxTexts.append(["The player that passes", "first gets to play first", "in the next round"])
         
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        tutorialBoxPositions.append(CGPoint(x: 360, y:935))
         tutorialBoxTexts.append(["Once a player passes, their" , "opponent can makes as many trades", "as they see fit before they", "too opt to pass"])
         
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        tutorialBoxPositions.append(CGPoint(x: 360, y:935))
         tutorialBoxTexts.append(["And that's it.", "Thank you for completing", "the Magnum Opus Tutorial"])
         
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        tutorialBoxPositions.append(CGPoint(x: 360, y:935))
         tutorialBoxTexts.append(["To play a full two player game", "select 'Begin Two Player'", "from the main menu"])
 
         
@@ -163,11 +172,49 @@ class Tutorial : SKScene {
             self.begin()
         }
         
-        displayNextTutorialTip()
+        events[13] = {
+            self.pausedForTutorial = false
+            self.requiredCard = self.childNode(withName: "card-1004") as? CardNode
+            self.requiredState = State.InHand
+        }
+        
+        events[14] = {
+            if(self.players[1].staging.count != 1){
+                print("Card not selected")
+                self.players[1].moveFromHandToStaging(cardNode: self.requiredCard!)
+            }
+            
+            self.pausedForTutorial = false
+            self.requiredCard = self.childNode(withName: "card-1005") as? CardNode
+        }
+        
+        events[15] = {
+            if(self.players[1].staging.count != 2){
+                print("Card not selected")
+                self.players[1].moveFromHandToStaging(cardNode: self.requiredCard!)
+            }
+            
+            self.requiredCard = nil
+        }
+        
+        events[18] = {
+            self.pickAnyCard = true
+            self.requiredState = State.InStore
+        }
+        
+        events[19] = {
+            self.pickAnyCard = false
+            self.requiredState = nil
+
+        }
+        
+        pausedForTutorial = true
+        
+        displayNextTutorialTip(playEvent: true)
 
     }
     
-    func displayNextTutorialTip(){
+    func displayNextTutorialTip(playEvent: Bool){
         currentTipIndex+=1
 
         if(currentTipIndex >= tutorialBoxTexts.count){
@@ -229,9 +276,8 @@ class Tutorial : SKScene {
         
         self.tutorialBoxBackground.run(SKAction.sequence([SKAction.fadeAlpha(by: -0.2, duration: 0.1), resizeInstantAnimation, SKAction.fadeAlpha(by: 0.2, duration: 0.1)]))
         
-        pausedForTutorial = true
         
-        if(self.events.keys.contains(self.currentTipIndex)){
+        if(playEvent && self.events.keys.contains(self.currentTipIndex)){
             self.events[self.currentTipIndex]!();
         }
         
@@ -255,6 +301,8 @@ class Tutorial : SKScene {
             store.drawDeck.add(c: d)
         }
         
+
+        
         for p : Player in players{
             //change to accomodate for more layers
             for _ in 0..<26{
@@ -267,9 +315,13 @@ class Tutorial : SKScene {
         for p : Player in players{
             playersInRound.append(p)
             
-            p.drawFreshHand()
+//            p.drawFreshHand()
         }
         
+        //Demo hands
+        players[1].drawFreshHand(values: [4, 5, 8, 9, 11, 12, 12])
+        players[0].drawFreshHand(values: [1, 3, 5, 7, 10, 11, 12])
+
         store.roundStart()
         
         print(self.childNode(withName: "StoreBackground")!.position)
@@ -283,12 +335,23 @@ class Tutorial : SKScene {
         
         if(touchedNode != nil){
             if (touchedNode!.name == "Tutorial Box"){
-                displayNextTutorialTip()
+                displayNextTutorialTip(playEvent: true)
                 return
             }
             
             if(pausedForTutorial == false){
                 if let cardNode = touchedNode as? CardNode{
+                    //Tutorial checks
+                    if(pickAnyCard == false && cardNode !== requiredCard){
+                        print("Incorrect Card Pressed")
+                        return
+                    }
+                    
+                    if(cardNode.card.state != requiredState){
+                        print("Incorrect Card Pressed")
+                        return
+                    }
+                    
                     switch(cardNode.card.state){
                     case State.InHand:
                         if(cardNode.card.player === currentPlayer){
