@@ -5,12 +5,12 @@ TODO:
 
 Sound design:
 Sounds needed: 
-Main Menu: Amibent noise, button pressed sound
+Main Menu: Ambient noise, button pressed sound
 
 
 Two player to do: Win screen
 // Bugs: Top player's hand is right aligned. Only top player ever starts.
-// Design:  Backgroud. 
+// Design:  Background. Passed icon when a player has passed.
 // Esitmated time: 1 1/2hr
 
 Tutorial: Begin
