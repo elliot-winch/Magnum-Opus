@@ -65,6 +65,16 @@ class naming: SKScene {
             let location = touch.location(in: self)
             let node : SKNode = self.atPoint(location)
             
+            if(node.name == "goHomeBtn"){
+                if let scene = SKScene(fileNamed: "newMenu") {
+                    // Set the scale mode to scale to fit the window
+                    scene.scaleMode = .aspectFill
+                    let transition = SKTransition.fade(withDuration: 1)
+                    // Present the scene
+                    view!.presentScene(scene, transition: transition)
+                }
+            }
+            
             if node.name == "enter" {
                 if let scene = SKScene(fileNamed: "GameScene") {
                     // Set the scale mode to scale to fit the window

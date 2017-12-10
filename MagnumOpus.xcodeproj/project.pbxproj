@@ -29,6 +29,7 @@
 		17F89CCA1FDDABE80044D454 /* card11.png in Resources */ = {isa = PBXBuildFile; fileRef = 17F89CBD1FDDABE80044D454 /* card11.png */; };
 		17F89CCB1FDDABE80044D454 /* card13.png in Resources */ = {isa = PBXBuildFile; fileRef = 17F89CBE1FDDABE80044D454 /* card13.png */; };
 		17F89CCC1FDDABE80044D454 /* card12.png in Resources */ = {isa = PBXBuildFile; fileRef = 17F89CBF1FDDABE80044D454 /* card12.png */; };
+		17F89CCF1FDDB77E0044D454 /* menuIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 17F89CCE1FDDB77E0044D454 /* menuIcon.png */; };
 		8302F5841FBBB6EA000EADE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8302F5831FBBB6EA000EADE4 /* AppDelegate.swift */; };
 		8302F5881FBBB6EA000EADE4 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8302F5871FBBB6EA000EADE4 /* Actions.sks */; };
 		8302F58C1FBBB6EA000EADE4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8302F58B1FBBB6EA000EADE4 /* GameViewController.swift */; };
@@ -123,6 +124,7 @@
 		17F89CBD1FDDABE80044D454 /* card11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card11.png; sourceTree = "<group>"; };
 		17F89CBE1FDDABE80044D454 /* card13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card13.png; sourceTree = "<group>"; };
 		17F89CBF1FDDABE80044D454 /* card12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card12.png; sourceTree = "<group>"; };
+		17F89CCE1FDDB77E0044D454 /* menuIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuIcon.png; sourceTree = "<group>"; };
 		8302F5801FBBB6EA000EADE4 /* MagnumOpus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagnumOpus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8302F5831FBBB6EA000EADE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8302F5871FBBB6EA000EADE4 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		17EC737D1FDCA84800529F4F /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				17F89CCE1FDDB77E0044D454 /* menuIcon.png */,
 				837AC1961FD0A93000A25F0B /* invertedCardBack.png */,
 				837AC1941FCFADA600A25F0B /* constellation3.png */,
 				837AC1921FCFAD5700A25F0B /* constellation2.png */,
@@ -569,6 +572,7 @@
 				834D25711FCD2C7A006B7CFD /* glowOrb.png in Resources */,
 				834726D71FC69C95009A65FC /* newMenu.sks in Resources */,
 				837AC1951FCFADA600A25F0B /* constellation3.png in Resources */,
+				17F89CCF1FDDB77E0044D454 /* menuIcon.png in Resources */,
 				17F89CCC1FDDABE80044D454 /* card12.png in Resources */,
 				17F89CC91FDDABE80044D454 /* card1.png in Resources */,
 			);
