@@ -57,7 +57,8 @@ public class Player {
     func drawFreshHand() -> Bool{
         for _ in 0..<hand.getMaxHandSize(){
             let card = drawDeck.draw();
-            hand.add(c: CardNode(card: card, imageNamed: "inverted" + String(card.getRawValue()), color: UIColor.white, size: CGSize(width:240,height:340)))
+            
+            hand.add(c: CardNode(card: card, imageNamed: cardSetSelected + String(card.getRawValue()), color: UIColor.white, size: CGSize(width:240,height:340)))
         }
         
         //        drawingPileSizeText.text = String(drawDeck.deck.count)

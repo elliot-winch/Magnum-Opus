@@ -36,7 +36,7 @@ public class Store{
             let card = drawDeck.draw()
             card.state = .InStore
             
-            let cardNode = CardNode(card: card, imageNamed: "inverted" + String(card.getRawValue()), color: UIColor.gray, size: CGSize(width: 180, height: 260))
+            let cardNode = CardNode(card: card, imageNamed: cardSetSelected + String(card.getRawValue()), color: UIColor.gray, size: CGSize(width: 180, height: 260))
             cardNode.name = "card-" + String(card.tag)
             
             cardNode.zRotation = CGFloat(i % 2 == 0 ? Double.pi : Double(0))

@@ -20,7 +20,7 @@ import SceneKit
 
 class newMenu: SKScene {
     
-    var sceneStrings = ["naming", "TutorialIntro"]
+    var sceneNames = ["naming", "TutorialIntro", "SettingsScreen"]
     
     var title:SKLabelNode!
     var backdrop: SKEmitterNode!
@@ -33,22 +33,22 @@ class newMenu: SKScene {
     
     override func didMove(to view: SKView) {
        
-        let rotateSlow = SKAction.rotate(byAngle: CGFloat(-M_PI * 0.5), duration: 10)
+        let rotateSlow = SKAction.rotate(byAngle: CGFloat(-Double.pi * 0.5), duration: 10)
         let loopSlow = SKAction.repeatForever(rotateSlow)
         
         let startButton = SKSpriteNode(imageNamed: "startStar2.png")
         self.addChild(startButton)
-        startButton.name = sceneStrings[0]
+        startButton.name = sceneNames[0]
         startButton.zPosition = 2
         startButton.position = CGPoint(x: 2, y: -440)
         startButton.size = CGSize(width: 90, height: 90)
-        let rotate = SKAction.rotate(byAngle: CGFloat(-M_PI * 0.5), duration: 5)
+        let rotate = SKAction.rotate(byAngle: CGFloat(-Double.pi * 0.5), duration: 5)
         let loop = SKAction.repeatForever(rotate)
         startButton.run(loop, withKey: "rotate")
         
         let tutorialButton = SKSpriteNode(imageNamed: "startStar2.png")
         self.addChild(tutorialButton)
-        tutorialButton.name = sceneStrings[1]
+        tutorialButton.name = sceneNames[1]
         tutorialButton.zPosition = 2
         tutorialButton.position = CGPoint(x: 0, y: 227)
         tutorialButton.size = CGSize(width: 80, height: 80)
@@ -56,7 +56,7 @@ class newMenu: SKScene {
         
         let settingsButton = SKSpriteNode(imageNamed: "startStar2.png")
         self.addChild(settingsButton)
-        settingsButton.name = "settings"
+        settingsButton.name = "SettingsScreen"
         settingsButton.zPosition = 2
         settingsButton.position = CGPoint(x: -110  , y: -22)
         settingsButton.size = CGSize(width: 70, height: 70)
@@ -136,12 +136,12 @@ class newMenu: SKScene {
        
         for touch in touches {
             let location = touch.location(in: self)
-            let node : SKNode = self.atPoint(location)
+            let node : SKNode? = self.atPoint(location)
             
-            //Bug!
-            if node? != nil && (sceneStrings.contains(node.name!)){
-                node.run(rotate)
-                launchScene(named: node.name)
+            if (node as? SKSpriteNode) != nil && node!.name != nil && sceneNames.contains(node!.name!){
+                node!.run(rotate)
+                launchScene(named: node!.name)
+                print(node!.name!)
             }
         }
     }
@@ -152,7 +152,7 @@ class newMenu: SKScene {
             return
         }
         
-        if(sceneStrings.contains(named!)){
+        if(sceneNames.contains(named!)){
         
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             
