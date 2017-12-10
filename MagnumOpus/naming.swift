@@ -71,7 +71,12 @@ class naming: SKScene {
                     scene.scaleMode = .aspectFill
                     let transition = SKTransition.fade(withDuration: 1)
                     // Present the scene
+                    
+                    playerOneBox.removeFromSuperview()
+                    playerTwoBox.removeFromSuperview()
+                    
                     view!.presentScene(scene, transition: transition)
+                
                 }
             }
             
