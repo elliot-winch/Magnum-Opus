@@ -43,17 +43,17 @@ class Tutorial : SKScene {
         tutorialBoxTexts.append(["This is your hand"])
         
         //2
-        tutorialBoxPositions.append(CGPoint(x: 360, y:1250))
+        tutorialBoxPositions.append(CGPoint(x: 380, y:1250))
         tutorialBoxTexts.append(["This is your opponent's hand.","Magnum Opus is played open handed"])
         //3
-        tutorialBoxPositions.append(CGPoint(x: 150, y: 600))
+        tutorialBoxPositions.append(CGPoint(x: 180, y: 600))
         tutorialBoxTexts.append(["This number is the", "number of cards", "in your draw deck"])
         //4
         tutorialBoxPositions.append(CGPoint(x: 570, y:600))
         tutorialBoxTexts.append(["This number is the", "number of cards", "in your discard pile"])
         //5
         tutorialBoxPositions.append(CGPoint(x: 540, y:1000))
-        tutorialBoxTexts.append(["This is the store", "We will come back", "to this shortly"])
+        tutorialBoxTexts.append(["This is the store.", "We will come back", "to this shortly"])
         //6
         tutorialBoxPositions.append(CGPoint(x: 360, y:505))
         tutorialBoxTexts.append(["At the start of the round,", "you draw seven cards from", "your draw deck"])
@@ -133,8 +133,8 @@ class Tutorial : SKScene {
         
         tutorialBoxLabel = SKLabelNode()
         tutorialBoxLabel.name = "Tutorial Box"
-        tutorialBoxLabel.fontName = "Times"
-        tutorialBoxLabel.fontSize = 48
+        tutorialBoxLabel.fontName = "Futura"
+        tutorialBoxLabel.fontSize = 42
         tutorialBoxLabel.horizontalAlignmentMode = .center
         tutorialBoxLabel.verticalAlignmentMode = .center
         tutorialBoxLabel.zPosition = 1000
@@ -161,8 +161,8 @@ class Tutorial : SKScene {
             tutorialBoxLabel.addChild(aditionalLine)
 
             aditionalLine.name = "Tutorial Box"
-            aditionalLine.fontName = "Times"
-            aditionalLine.fontSize = 48
+            aditionalLine.fontName = "Futura"
+            aditionalLine.fontSize = 42
             aditionalLine.horizontalAlignmentMode = .center
             aditionalLine.verticalAlignmentMode = .center
             aditionalLine.position = CGPoint(x: 0, y: -40 * (i + 1))
