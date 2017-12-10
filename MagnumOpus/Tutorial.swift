@@ -73,15 +73,15 @@ class Tutorial : SKScene {
         tutorialBoxPositions.append(CGPoint(x: 540, y:1000))
         tutorialBoxTexts.append(["Players take it in turns", "to trade meld of size", "two or greater", "for a single card", "in the store"])
         //12
-        tutorialBoxPositions.append(CGPoint(x: 600, y:1000))
+        tutorialBoxPositions.append(CGPoint(x: 540, y:1000))
         tutorialBoxTexts.append(["Let's trade the 4", "and the 5 in", "your hand for a", "card in the store"])
         //13
         //Touch lock off
-        tutorialBoxPositions.append(CGPoint(x: 120, y:580))
+        tutorialBoxPositions.append(CGPoint(x: 160, y:580))
         tutorialBoxTexts.append(["Tap on the 4", "to select it"])
         //14
         //Touch lock off
-        tutorialBoxPositions.append(CGPoint(x: 200, y:580))
+        tutorialBoxPositions.append(CGPoint(x: 260, y:580))
         tutorialBoxTexts.append(["Tap on the 5", "to select it too"])
         //15
         //Touch lock off
@@ -92,7 +92,7 @@ class Tutorial : SKScene {
         tutorialBoxTexts.append(["The store can hold", "up to eight cards"])
         //17
         //Touch lock off
-        tutorialBoxPositions.append(CGPoint(x: 540, y:1000))
+        tutorialBoxPositions.append(CGPoint(x: 520, y:1000))
         tutorialBoxTexts.append(["Reminder: ", "a valid meld for trading", "is a run or of-a-kind", "of size two or greater"])
         //18
         //Touch lock off
@@ -133,7 +133,7 @@ class Tutorial : SKScene {
         
         tutorialBoxLabel = SKLabelNode()
         tutorialBoxLabel.name = "Tutorial Box"
-        tutorialBoxLabel.fontName = "My Font"
+        tutorialBoxLabel.fontName = "Times"
         tutorialBoxLabel.fontSize = 48
         tutorialBoxLabel.horizontalAlignmentMode = .center
         tutorialBoxLabel.verticalAlignmentMode = .center
@@ -161,7 +161,7 @@ class Tutorial : SKScene {
             tutorialBoxLabel.addChild(aditionalLine)
 
             aditionalLine.name = "Tutorial Box"
-            aditionalLine.fontName = "My Font"
+            aditionalLine.fontName = "Times"
             aditionalLine.fontSize = 48
             aditionalLine.horizontalAlignmentMode = .center
             aditionalLine.verticalAlignmentMode = .center
@@ -268,7 +268,7 @@ class Tutorial : SKScene {
         let resizeInstantAnimation = SKAction.customAction(withDuration: 0.001) {
             node, elaspedTime in
             
-            let tutorialBoxNewSize = CGSize(width: CGFloat(longestStringLength * 20 + 10), height: CGFloat(self.tutorialBoxTexts[self.currentTipIndex].count) * 40)//tutorialBoxLabel.frame.size.height)
+            let tutorialBoxNewSize = CGSize(width: CGFloat(longestStringLength * 23 + 10), height: CGFloat(self.tutorialBoxTexts[self.currentTipIndex].count) * 40)//tutorialBoxLabel.frame.size.height)
             
             self.tutorialBoxBackground.size = CGSize(width: tutorialBoxNewSize.width, height: tutorialBoxNewSize.height)
             self.tutorialBoxBackground.position = CGPoint(x: 0, y: 20 + (-CGFloat(self.tutorialBoxTexts[self.currentTipIndex].count) / 2) * 40)
