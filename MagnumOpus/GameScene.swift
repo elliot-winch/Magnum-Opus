@@ -40,8 +40,9 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
-        playerOneName = GameViewController.playerOneName
-        playerTwoName = GameViewController.playerTwoName
+        //unfortunate design error
+        playerOneName = GameViewController.playerTwoName
+        playerTwoName = GameViewController.playerOneName
         
         players[0].name = playerOneName
         players[1].name = playerTwoName
@@ -93,11 +94,55 @@ class GameScene: SKScene {
         for p : Player in players{
             playersInRound.append(p)
             
-            p.drawFreshHand()
+            if(p.drawFreshHand()){
+                win(p: p, message: "\(p.name) wins!")
+                
+            //This else if is untested!
+            } else if(p.drawDeck.discardPile.deck.count <= 0 && p.drawDeck.deck.count <= 0){
+                win(p: players[(p.playerNum+1)%2], message: "\(p.name) defaults!")
+            }
         }
         
         self.childNode(withName: "StoreBackground")!.position = CGPoint(x: 0, y: 150 + (534 * currentPlayer!.playerNum))
         store.roundStart()
+    }
+    
+    func win(p: Player, message: String){
+        let winMessage = SKLabelNode()
+        winMessage.fontName = "My Font"
+        winMessage.fontSize = 48
+        
+        winMessage.text = message
+        winMessage.zPosition = 200
+        winMessage.fontSize = 96
+        winMessage.position = CGPoint(x: store.parent.frame.width / 2, y: store.parent.frame.height / 2)
+        winMessage.alpha = 0
+        
+        winMessage.run(SKAction.fadeIn(withDuration: 1))
+        
+        store.parent.addChild(winMessage)
+        
+        for i in 0..<p.hand.hand.count{
+            
+            let initialPause = SKAction.wait(forDuration: 0.1 * Double(i))
+            let smallJumpingAnimation = SKAction.move(by: CGVector(dx: 0, dy: 30), duration: 0.1)
+            let smallFallAnimation = SKAction.move(by: CGVector(dx: 0, dy: -30), duration: 0.1)
+            let pauseAnimation = SKAction.wait(forDuration: 0.5)
+            
+            let jumpSequence = SKAction.sequence([smallJumpingAnimation, smallFallAnimation, pauseAnimation])
+            
+            p.hand.hand[i].run(SKAction.sequence([initialPause, SKAction.repeat(jumpSequence, count: 15)]))
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+            
+            if let scene = SKScene(fileNamed: "newMenu") {
+                scene.scaleMode = .aspectFill
+                let transition = SKTransition.fade(withDuration: 1)
+                
+                self.view!.presentScene(scene, transition: transition)
+            }
+        }
     }
     
     static func setLabelToStandard(label: SKLabelNode){
