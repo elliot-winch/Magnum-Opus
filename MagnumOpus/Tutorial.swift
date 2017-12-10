@@ -218,11 +218,17 @@ class Tutorial : SKScene {
             }
         }
         
+
+        let resizeInstantAnimation = SKAction.customAction(withDuration: 0.001) {
+            node, elaspedTime in
+            
+            let tutorialBoxNewSize = CGSize(width: CGFloat(longestStringLength * 20 + 10), height: CGFloat(self.tutorialBoxTexts[self.currentTipIndex].count) * 40)//tutorialBoxLabel.frame.size.height)
+            
+            self.tutorialBoxBackground.size = CGSize(width: tutorialBoxNewSize.width, height: tutorialBoxNewSize.height)
+            self.tutorialBoxBackground.position = CGPoint(x: 0, y: 20 + (-CGFloat(self.tutorialBoxTexts[self.currentTipIndex].count) / 2) * 40)
+        }
         
-        let tutorialBoxNewSize = CGSize(width: CGFloat(longestStringLength * 10 + 10), height: CGFloat(tutorialBoxTexts[self.currentTipIndex].count + 1) * tutorialBoxLabel.frame.size.height + 10)
-        
-        
-        tutorialBoxBackground.run(SKAction.resize(toWidth: tutorialBoxNewSize.width, height: tutorialBoxNewSize.height, duration: 0.2))
+        self.tutorialBoxBackground.run(SKAction.sequence([SKAction.fadeAlpha(by: -0.2, duration: 0.1), resizeInstantAnimation, SKAction.fadeAlpha(by: 0.2, duration: 0.1)]))
         
         pausedForTutorial = true
         
