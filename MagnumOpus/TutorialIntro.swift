@@ -77,8 +77,6 @@ class TutorialIntro : SKScene {
             self.removeAllCardsFromScene()
         }
         
-        print(events[2]!)
-        
         for i in 0..<maxNumLines{
             let multiLineNode = SKLabelNode()
             multiLineNode.fontName = "My Font"
@@ -88,12 +86,13 @@ class TutorialIntro : SKScene {
             
             mainLabel.addChild(multiLineNode)
         }
+        
     }
     
     func spawnExampleCards(cards: [Int]){
         for i in 0..<cards.count{
             let card = Card(value: Value(rawValue: cards[i])!, tag: i, player: nil)
-            let cardNode = CardNode(card: card, imageNamed: "inverted" + String(card.getRawValue()), color: UIColor.white, size: CGSize(width:240,height:340))
+            let cardNode = CardNode(card: card, imageNamed: cardSetSelected + String(card.getRawValue()), color: UIColor.white, size: CGSize(width:240,height:340))
             
             self.cardParent.addChild(cardNode)
             
@@ -174,30 +173,32 @@ class TutorialIntro : SKScene {
     func nextText(){
         let changeText = SKAction.customAction(withDuration: 0.001, actionBlock: { node, elapsedTime in
             
-            self.mainLabel.text = self.mainLabelStrings[self.currentIndex][0]
+            if(self.currentIndex < self.mainLabelStrings.count){
+                self.mainLabel.text = self.mainLabelStrings[self.currentIndex][0]
             
-            var i = 0
-            for child in self.mainLabel.children as! [SKLabelNode] {
-                i+=1
+                var i = 0
+                for child in self.mainLabel.children as! [SKLabelNode] {
+                    i+=1
                 
-                if(i >= self.mainLabelStrings[self.currentIndex].count){
-                    child.text = ""
-                    continue
+                    if(i >= self.mainLabelStrings[self.currentIndex].count){
+                        child.text = ""
+                        continue
+                    }
+                
+                    child.text = self.mainLabelStrings[self.currentIndex][i]
                 }
-                
-                child.text = self.mainLabelStrings[self.currentIndex][i]
-            }
             
-            if(self.currentIndex < self.fontSizes.count){
-                self.mainLabel.fontSize = self.fontSizes[self.currentIndex]
-            }
+                if(self.currentIndex < self.fontSizes.count){
+                    self.mainLabel.fontSize = self.fontSizes[self.currentIndex]
+                }
             
-            if(self.events.keys.contains(self.currentIndex)){
-                print(self.currentIndex)
-                self.events[self.currentIndex]!();
-            }
+                if(self.events.keys.contains(self.currentIndex)){
+                    print(self.currentIndex)
+                    self.events[self.currentIndex]!();
+                }
             
-            self.currentIndex+=1
+                self.currentIndex+=1
+            }
         })
         
         mainLabel.run(SKAction.sequence([SKAction.fadeOut(withDuration: 0.3), changeText, SKAction.fadeIn(withDuration: 0.3)]))

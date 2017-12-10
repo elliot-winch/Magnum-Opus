@@ -247,7 +247,7 @@ class GameScene: SKScene {
         self.childNode(withName: "StoreBackground")!.run(sequence)
         
         let buttonMoveAction = SKAction.move(by: CGVector(dx: 0, dy: (currentPlayer!.playerNum == 0 ? 186 : -186)), duration: 0.5)
-        let buttonRotate = SKAction.rotate(byAngle: CGFloat(M_PI/1.0), duration: 0)
+        let buttonRotate = SKAction.rotate(byAngle: CGFloat.pi, duration: 0)
         buttonMoveAction.timingMode = .easeInEaseOut
         let buttonSequence = SKAction.sequence([SKAction.wait(forDuration: withDelay + 0.3), buttonRotate, buttonMoveAction])
         

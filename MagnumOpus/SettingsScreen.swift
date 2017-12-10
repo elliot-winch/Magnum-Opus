@@ -59,7 +59,7 @@ class SettingsScreen: SKScene {
         self.addChild(cardCardNode)
 
         
-        let highlightNode = SKSpriteNode(color: UIColor.green, size: CGSize(width: 260, height: 360))
+        let highlightNode = SKSpriteNode(color: UIColor(red: 172, green: 224, blue: 172, alpha: 1), size: CGSize(width: 260, height: 360))
         highlightNode.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         highlightNode.name = "highlightNode"
         

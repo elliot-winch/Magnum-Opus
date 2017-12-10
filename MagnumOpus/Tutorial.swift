@@ -32,17 +32,17 @@ class Tutorial : SKScene {
     
     required init?(coder aDecoder: NSCoder) {
         
-        tutorialBoxPositions.append(CGPoint(x: 300, y:300))
+        tutorialBoxPositions.append(CGPoint(x: 360, y:450))
         tutorialBoxTexts.append(["Press Me To Continue The Tutorial!"])
         
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
+        tutorialBoxPositions.append(CGPoint(x: 360, y:450))
         tutorialBoxTexts.append(["This is your hand"])
         
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
-        tutorialBoxTexts.append(["This is your opponent's hand","Magnum Opus is played open handed"])
+        tutorialBoxPositions.append(CGPoint(x: 360, y:1250))
+        tutorialBoxTexts.append(["This is your opponent's hand.","Magnum Opus is played open handed"])
         
-        tutorialBoxPositions.append(CGPoint(x: 300, y:400))
-        tutorialBoxTexts.append(["This number is the number of cards", "in your draw deck"])
+        tutorialBoxPositions.append(CGPoint(x: 50, y:520))
+        tutorialBoxTexts.append(["This number is the", "number of cards", "in your draw deck"])
         
         tutorialBoxPositions.append(CGPoint(x: 300, y:400))
         tutorialBoxTexts.append(["This number is the number of cards", "in your discard pile"])
@@ -130,16 +130,15 @@ class Tutorial : SKScene {
         tutorialBoxLabel.verticalAlignmentMode = .center
         tutorialBoxLabel.zPosition = 1000
         
-        tutorialBoxBackground = SKSpriteNode(color: UIColor.blue, size: CGSize(width: 300, height: 300))
-        tutorialBoxBackground.alpha = 0.2
-        tutorialBoxBackground.zPosition = 1
+        tutorialBoxBackground = SKSpriteNode(color: UIColor(red: 42/256, green: 84/256, blue: 42/256, alpha: 0.9), size: CGSize(width: 300, height: 300))
+        tutorialBoxBackground.zPosition = -1
         tutorialBoxBackground.name = "Tutorial Box"
 
         super.init(coder: aDecoder)
         
         players.append(Player(id: 0, handSize: 7, parent: self, name : ""))
         players.append(Player(id: 1, handSize: 7, parent: self, name : ""))
-        currentPlayerIndex = 0//Int(arc4random_uniform(UInt32(players.count)))
+        currentPlayerIndex = 1//Int(arc4random_uniform(UInt32(players.count)))
         currentPlayer = players[currentPlayerIndex]
         
         store.parent = self.childNode(withName: "StoreBackground")!
@@ -240,6 +239,7 @@ class Tutorial : SKScene {
     }
     
     func begin() {
+        print(self.childNode(withName: "StoreBackground")!.position)
         
         if(players.count != 2){
             print("Increase number of players, son")
@@ -270,18 +270,21 @@ class Tutorial : SKScene {
             p.drawFreshHand()
         }
         
-        self.childNode(withName: "StoreBackground")!.position = CGPoint(x: 0, y: 150 + (534 * currentPlayer!.playerNum))
         store.roundStart()
+        
+        print(self.childNode(withName: "StoreBackground")!.position)
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let positionInScene = touch.location(in: self)
-        let touchedNode = self.atPoint(positionInScene) as? SKSpriteNode
+        let touchedNode = self.atPoint(positionInScene) as? SKNode
         
         if(touchedNode != nil){
             if (touchedNode!.name == "Tutorial Box"){
                 displayNextTutorialTip()
+                return
             }
             
             if(pausedForTutorial == false){
@@ -412,7 +415,7 @@ class Tutorial : SKScene {
         self.childNode(withName: "StoreBackground")!.run(sequence)
         
         let buttonMoveAction = SKAction.move(by: CGVector(dx: 0, dy: (currentPlayer!.playerNum == 0 ? 186 : -186)), duration: 0.5)
-        let buttonRotate = SKAction.rotate(byAngle: CGFloat(Double.pi/1.0), duration: 0)
+        let buttonRotate = SKAction.rotate(byAngle: CGFloat.pi, duration: 0)
         buttonMoveAction.timingMode = .easeInEaseOut
         let buttonSequence = SKAction.sequence([SKAction.wait(forDuration: withDelay + 0.3), buttonRotate, buttonMoveAction])
         
