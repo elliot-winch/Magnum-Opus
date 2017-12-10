@@ -79,7 +79,7 @@ class TutorialIntro : SKScene {
         
         for i in 0..<maxNumLines{
             let multiLineNode = SKLabelNode()
-            multiLineNode.fontName = "My Font"
+            multiLineNode.fontName = "Futura"
             multiLineNode.fontSize = 48
             multiLineNode.name = "MultiLineNode"
             multiLineNode.position = CGPoint(x: 0, y: -60 * (i + 1))
@@ -129,10 +129,10 @@ class TutorialIntro : SKScene {
 
             self.mainLabel.alpha = 0
             self.mainLabel.colorBlendFactor = 1
-            self.mainLabel.fontName = "My Font"
+            self.mainLabel.fontName = "Futura"
 
             self.supportLabel.text = "Tap To Continue"
-            self.supportLabel.fontName = "My Font"
+            self.supportLabel.fontName = "Futura"
             self.supportLabel.alpha = 0
             self.supportLabel.colorBlendFactor = 1
         
