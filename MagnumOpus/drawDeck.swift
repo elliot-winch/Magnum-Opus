@@ -11,13 +11,18 @@ public class DrawDeck : Deck {
     
     let discardPile = Deck()
     
-    override func draw() -> Card {
+    override func draw() -> Card? {
         if(deck.count <= 0){
             for _ in 0..<discardPile.deck.count{
-                super.add(c: discardPile.draw()!)
+                let card = discardPile.draw()
+                if(card != nil){
+                    super.add(c: card!)
+                } else {
+                    return nil
+                }
             }
         }
-        return super.draw()!
+        return super.draw()
     }
     
     override func add(c: Card) {

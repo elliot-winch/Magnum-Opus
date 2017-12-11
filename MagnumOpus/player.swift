@@ -76,13 +76,13 @@ public class Player {
         } else{
             for _ in 0..<hand.getMaxHandSize(){
                 let card = drawDeck.draw();
-            
-                hand.add(c: CardNode(card: card, imageNamed: cardSetSelected + String(card.getRawValue()), color: UIColor.white, size: CGSize(width:240,height:340)))
+                
+                if(card != nil){
+                    hand.add(c: CardNode(card: card!, imageNamed: cardSetSelected + String(card!.getRawValue()), color: UIColor.white, size: CGSize(width:240,height:340)))
+                }
             }
         }
         
-        //        drawingPileSizeText.text = String(drawDeck.deck.count)
-        //        discardPileSizeText.text = String(drawDeck.discardPile.deck.count)
         
         hand.sort(reversed: playerNum == 0)
         
@@ -110,7 +110,12 @@ public class Player {
         drawNumLabel.text = String(describing: String(describing: self.drawDeck.deck.count))
         discardNumLabel.text = String(describing: self.drawDeck.discardPile.deck.count)
         
-        return (isMeld(cardSlice: hand.hand[0...2]) && isMeld(cardSlice: hand.hand[3...6])) || (isMeld(cardSlice: hand.hand[0...3]) && isMeld(cardSlice: hand.hand[4...6]))
+        if(hand.hand.count == hand.getMaxHandSize()){
+            return (isMeld(cardSlice: hand.hand[0...2]) && isMeld(cardSlice: hand.hand[3...6])) || (isMeld(cardSlice: hand.hand[0...3]) && isMeld(cardSlice: hand.hand[4...6]))
+        } else {
+            return false
+        }
+
     }
     
     func addCardToHand(cardNode: CardNode){

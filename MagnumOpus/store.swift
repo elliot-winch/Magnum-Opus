@@ -33,7 +33,8 @@ public class Store{
     func roundStart(){
         //initial number of cards in store is 4
         for i in 0..<4{
-            let card = drawDeck.draw()
+            let card = drawDeck.draw()!
+
             card.state = .InStore
             
             let cardNode = CardNode(card: card, imageNamed: cardSetSelected + String(card.getRawValue()), color: UIColor.gray, size: CGSize(width: 180, height: 260))
