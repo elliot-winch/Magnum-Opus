@@ -374,6 +374,7 @@ class Tutorial : SKScene {
                         }
                     case State.InStore:
                         if(isMeld(cards: currentPlayer!.staging)){
+                            playASound(fileName: "cardFlip")
                             store.removeFromCurrentStore(cardNode: cardNode)
                             currentPlayer!.moveFromStoreToHand(cardNode: cardNode)
                             currentPlayer!.moveFromStagingToStore(store: store)
@@ -434,6 +435,7 @@ class Tutorial : SKScene {
     
     func endRound(withStoreAnimationDelay: Double){
         store.roundEnd()
+        playASound(fileName: "shuffle")
         
         for p : Player in players{
             p.discardEntireHand()

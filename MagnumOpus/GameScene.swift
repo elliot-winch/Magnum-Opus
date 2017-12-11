@@ -8,7 +8,6 @@
 //meat of game
 import SpriteKit
 import GameplayKit
-import AVFoundation
 
 class GameScene: SKScene {
     
@@ -22,9 +21,7 @@ class GameScene: SKScene {
     var passingPlayer: Player?
     var currentPlayerIndex : Int
     var store : Store
-    
-    var audioPlayer:AVAudioPlayer!
-    
+        
     required init?(coder aDecoder: NSCoder) {
         players = [Player]()
         playersInRound = [Player]()
@@ -303,34 +300,6 @@ class GameScene: SKScene {
         
         self.childNode(withName: "QuitButton")?.run(buttonSequence)
         self.childNode(withName: "PassButton")?.run(buttonSequence)
-    }
-    
-    func playASound(fileName : String){
-        print("At least I was called!")
-        guard let url = Bundle.main.url(forResource: fileName, withExtension: "wav") else {
-            print("AudioError: Didn't find file named \(fileName)")
-            return }
-        
-        do {
-            print("We're playing a sound!")
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            try AVAudioSession.sharedInstance().setActive(true)
-            
-            print("We're still playing a sound!")
-
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            
-            print("We have an audio player!")
-
-            guard let audioPlayer = audioPlayer else { return }
-            
-            print("We're finally playing!")
-            audioPlayer.play()
-            
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {}
