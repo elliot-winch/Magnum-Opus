@@ -32,6 +32,8 @@
 		17F89CCF1FDDB77E0044D454 /* menuIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 17F89CCE1FDDB77E0044D454 /* menuIcon.png */; };
 		5E67575E1FDF3CF00050F441 /* cardFlip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E67575D1FDF3CF00050F441 /* cardFlip.wav */; };
 		5E6757601FDF3CF40050F441 /* shuffle.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E67575F1FDF3CF40050F441 /* shuffle.wav */; };
+		5E6757631FDF41410050F441 /* CreditsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6757621FDF41410050F441 /* CreditsScreen.swift */; };
+		5E6757651FDF41560050F441 /* CreditsScreen.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5E6757641FDF41560050F441 /* CreditsScreen.sks */; };
 		8302F5841FBBB6EA000EADE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8302F5831FBBB6EA000EADE4 /* AppDelegate.swift */; };
 		8302F5881FBBB6EA000EADE4 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8302F5871FBBB6EA000EADE4 /* Actions.sks */; };
 		8302F58C1FBBB6EA000EADE4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8302F58B1FBBB6EA000EADE4 /* GameViewController.swift */; };
@@ -129,6 +131,8 @@
 		17F89CCE1FDDB77E0044D454 /* menuIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuIcon.png; sourceTree = "<group>"; };
 		5E67575D1FDF3CF00050F441 /* cardFlip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardFlip.wav; sourceTree = "<group>"; };
 		5E67575F1FDF3CF40050F441 /* shuffle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shuffle.wav; sourceTree = "<group>"; };
+		5E6757621FDF41410050F441 /* CreditsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsScreen.swift; sourceTree = "<group>"; };
+		5E6757641FDF41560050F441 /* CreditsScreen.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CreditsScreen.sks; sourceTree = "<group>"; };
 		8302F5801FBBB6EA000EADE4 /* MagnumOpus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagnumOpus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8302F5831FBBB6EA000EADE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8302F5871FBBB6EA000EADE4 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -214,7 +218,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		17EC737A1FDCA7A300529F4F /* TutorialScenes */ = {
+		17EC737A1FDCA7A300529F4F /* TutorialScreens */ = {
 			isa = PBXGroup;
 			children = (
 				174283F31FDB4377003D33A3 /* Tutorial.sks */,
@@ -222,7 +226,7 @@
 				17EC737F1FDCA8F800529F4F /* TutorialIntro.sks */,
 				17EC73811FDCA90800529F4F /* TutorialIntro.swift */,
 			);
-			name = TutorialScenes;
+			name = TutorialScreens;
 			sourceTree = "<group>";
 		};
 		17EC737B1FDCA7B700529F4F /* NameScreen */ = {
@@ -319,6 +323,15 @@
 			name = newMenu;
 			sourceTree = "<group>";
 		};
+		5E6757611FDF40E00050F441 /* CreditsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				5E6757621FDF41410050F441 /* CreditsScreen.swift */,
+				5E6757641FDF41560050F441 /* CreditsScreen.sks */,
+			);
+			name = CreditsScreen;
+			sourceTree = "<group>";
+		};
 		8302F5771FBBB6EA000EADE4 = {
 			isa = PBXGroup;
 			children = (
@@ -344,10 +357,11 @@
 			children = (
 				834726ED1FCB2B81009A65FC /* Particles */,
 				8302F5831FBBB6EA000EADE4 /* AppDelegate.swift */,
-				17EC737A1FDCA7A300529F4F /* TutorialScenes */,
+				17EC737A1FDCA7A300529F4F /* TutorialScreens */,
 				17F89CAE1FDDA83E0044D454 /* SettingsScreen */,
 				17EC737B1FDCA7B700529F4F /* NameScreen */,
 				17EC737C1FDCA7F300529F4F /* GameScripts */,
+				5E6757611FDF40E00050F441 /* CreditsScreen */,
 				17F89CCD1FDDB0C10044D454 /* newMenu */,
 				17EC737D1FDCA84800529F4F /* Assets */,
 				8302F5871FBBB6EA000EADE4 /* Actions.sks */,
@@ -540,6 +554,7 @@
 				834D25751FCE2DEC006B7CFD /* whiteStar.png in Resources */,
 				83718E4B1FD8BFC800ADFD28 /* passButton.png in Resources */,
 				83718E431FD8B60F00ADFD28 /* moFont.otf in Resources */,
+				5E6757651FDF41560050F441 /* CreditsScreen.sks in Resources */,
 				83718E401FD89CE600ADFD28 /* GameScene.sks in Resources */,
 				17F89CC51FDDABE80044D454 /* card7.png in Resources */,
 				834726F31FCB2BFA009A65FC /* starsParticles.scnp in Resources */,
@@ -621,6 +636,7 @@
 				8302F58C1FBBB6EA000EADE4 /* GameViewController.swift in Sources */,
 				8302F5841FBBB6EA000EADE4 /* AppDelegate.swift in Sources */,
 				830797EB1FBBD5B5001CDFCA /* deck.swift in Sources */,
+				5E6757631FDF41410050F441 /* CreditsScreen.swift in Sources */,
 				174283F21FDB2ED4003D33A3 /* player.swift in Sources */,
 				837AC18F1FCFA38900A25F0B /* naming.swift in Sources */,
 				834726D91FC69CC2009A65FC /* newMenu.swift in Sources */,

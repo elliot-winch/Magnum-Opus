@@ -20,7 +20,7 @@ import SceneKit
 
 class newMenu: SKScene {
     
-    var sceneNames = ["naming", "TutorialIntro", "SettingsScreen"]
+    var sceneNames = ["naming", "TutorialIntro", "SettingsScreen", "CreditsScreen"]
     
     var title:SKLabelNode!
     var backdrop: SKEmitterNode!
@@ -64,7 +64,7 @@ class newMenu: SKScene {
         
         let creditsButton = SKSpriteNode(imageNamed: "startStar2.png")
         self.addChild(creditsButton)
-        creditsButton.name = "credits"
+        creditsButton.name = "CreditsScreen"
         creditsButton.zPosition = 2
         creditsButton.position = CGPoint(x: 110  , y: -22)
         creditsButton.size = CGSize(width: 70, height: 70)
