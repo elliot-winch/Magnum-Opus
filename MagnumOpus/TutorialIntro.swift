@@ -40,8 +40,8 @@ class TutorialIntro : SKScene {
         
         
         
-        fontSizes.append(64)
         fontSizes.append(48)
+        fontSizes.append(36)
         
         cardParent = SKNode()
         cardParent.name = "cardParent"
@@ -80,7 +80,7 @@ class TutorialIntro : SKScene {
         for i in 0..<maxNumLines{
             let multiLineNode = SKLabelNode()
             multiLineNode.fontName = "Futura"
-            multiLineNode.fontSize = 48
+            multiLineNode.fontSize = 36
             multiLineNode.name = "MultiLineNode"
             multiLineNode.position = CGPoint(x: 0, y: -60 * (i + 1))
             
