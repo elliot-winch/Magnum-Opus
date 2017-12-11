@@ -2,7 +2,7 @@
 Magnum Opus, an original card game for iOS.
 Magnum Opus is a melding, 'anti-deck buider' card game.
 
-Demo Version 1.1 is released!
+Demo Version 1.2.1 is released!
 
 <h3>Melds in Magnum Opus:</h3>
 A meld is a group of cards that either are a run (a sequence of ascending cards e.g. 8♠, 9♥, 10♦ or have the same value (e.g. K♦, K♠, K♥). In Magnum Opus, melds of two cards are known as ‘half-melds’, and melds with three or more cards are ‘full-melds’. In other melding games, such as Rummy, a run is defined as a sequence of ascending cards of the same suit, but there is no such requirement in Magnum Opus. In fact, suit doesn’t matter at all - only value.
