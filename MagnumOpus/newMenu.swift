@@ -30,7 +30,7 @@ class newMenu: SKScene {
     var settingsLabel : SKLabelNode!
     var creditsLabel : SKLabelNode!
     
-    
+    //Lods the menu
     override func didMove(to view: SKView) {
        
         let rotateSlow = SKAction.rotate(byAngle: CGFloat(-Double.pi * 0.5), duration: 10)
@@ -138,6 +138,7 @@ class newMenu: SKScene {
             let location = touch.location(in: self)
             let node : SKNode? = self.atPoint(location)
             
+            //Is the tapped node a sprite and has a valid scene name?
             if (node as? SKSpriteNode) != nil && node!.name != nil && sceneNames.contains(node!.name!){
                 node!.run(rotate)
                 launchScene(named: node!.name)
@@ -153,7 +154,8 @@ class newMenu: SKScene {
         }
         
         if(sceneNames.contains(named!)){
-        
+            
+            //The scene's launch is delayed by 0.3 seconds so the spin animation can run
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             
                 if let scene = SKScene(fileNamed: named!) {

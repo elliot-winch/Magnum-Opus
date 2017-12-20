@@ -57,7 +57,7 @@ class CreditsScreen: SKScene {
         
         
     }
-    
+    //Only touch functionality is to return to the main screen
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches{
             let location = touch.location(in: self)

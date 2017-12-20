@@ -2,7 +2,7 @@
 //  File.swift
 //  Merchant
 //
-//  Created by Christopher Winch on 13/11/2017.
+//  Created by Elliot Winch on 13/11/2017.
 //  Copyright © 2017 nyu.edu. All rights reserved.
 //
 import Foundation

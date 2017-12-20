@@ -2,15 +2,19 @@
 //  drawDeck.swift
 //  Merchant
 //
-//  Created by Christopher Winch on 14/11/2017.
+//  Created by Elliot Winch on 14/11/2017.
 //  Copyright © 2017 nyu.edu. All rights reserved.
 //
 import Foundation
 
+//Representation of a deck and its asociated discard pile.
+//Inherits from deck.
 public class DrawDeck : Deck {
     
     let discardPile = Deck()
     
+    //If the draw deck is empty, shuffle the discard pile
+    //and use this as your new deck.
     override func draw() -> Card? {
         if(deck.count <= 0){
             for _ in 0..<discardPile.deck.count{

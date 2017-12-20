@@ -2,15 +2,18 @@
 //  deck.swift
 //  Merchant
 //
-//  Created by Christopher Winch on 13/11/2017.
+//  Created by Elliot Winch on 13/11/2017.
 //  Copyright © 2017 nyu.edu. All rights reserved.
 //
 import Foundation
 
+//Representation of a deck of cards
 public class Deck {
     
+    //Array stores card info (NB not card nodes)
     var deck : [Card]
     
+    //Initialisers - can be init'ed with empty array
     init(){
         deck = [Card]()
     }
@@ -23,10 +26,12 @@ public class Deck {
         }
     }
     
+    //Adds a card to the deck
     func add(c : Card) {
         deck.append(c)
     }
     
+    //Draws a card from the deck, if there are cards to draw. Else returns nil
     func draw() -> Card? {
         if(deck.count > 0){
             let randNum = Int(arc4random_uniform(UInt32(deck.count)))
