@@ -12,6 +12,19 @@
 		174283F21FDB2ED4003D33A3 /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174283F11FDB2ED4003D33A3 /* player.swift */; };
 		174283F41FDB4377003D33A3 /* Tutorial.sks in Resources */ = {isa = PBXBuildFile; fileRef = 174283F31FDB4377003D33A3 /* Tutorial.sks */; };
 		174283F61FDB4386003D33A3 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174283F51FDB4386003D33A3 /* Tutorial.swift */; };
+		17B305801FEAE6FB009E7668 /* blood5.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B305731FEAE6F9009E7668 /* blood5.png */; };
+		17B305811FEAE6FB009E7668 /* blood6.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B305741FEAE6F9009E7668 /* blood6.png */; };
+		17B305821FEAE6FB009E7668 /* blood2.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B305751FEAE6FA009E7668 /* blood2.png */; };
+		17B305831FEAE6FB009E7668 /* blood12.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B305761FEAE6FA009E7668 /* blood12.png */; };
+		17B305841FEAE6FB009E7668 /* blood7.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B305771FEAE6FA009E7668 /* blood7.png */; };
+		17B305851FEAE6FB009E7668 /* blood10.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B305781FEAE6FA009E7668 /* blood10.png */; };
+		17B305861FEAE6FB009E7668 /* blood11.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B305791FEAE6FA009E7668 /* blood11.png */; };
+		17B305871FEAE6FB009E7668 /* blood4.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B3057A1FEAE6FA009E7668 /* blood4.png */; };
+		17B305881FEAE6FB009E7668 /* blood3.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B3057B1FEAE6FA009E7668 /* blood3.png */; };
+		17B305891FEAE6FB009E7668 /* blood1.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B3057C1FEAE6FA009E7668 /* blood1.png */; };
+		17B3058A1FEAE6FB009E7668 /* blood9.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B3057D1FEAE6FA009E7668 /* blood9.png */; };
+		17B3058B1FEAE6FB009E7668 /* blood13.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B3057E1FEAE6FB009E7668 /* blood13.png */; };
+		17B3058C1FEAE6FB009E7668 /* blood8.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B3057F1FEAE6FB009E7668 /* blood8.png */; };
 		17EC73801FDCA8F800529F4F /* TutorialIntro.sks in Resources */ = {isa = PBXBuildFile; fileRef = 17EC737F1FDCA8F800529F4F /* TutorialIntro.sks */; };
 		17EC73821FDCA90800529F4F /* TutorialIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EC73811FDCA90800529F4F /* TutorialIntro.swift */; };
 		17F89CB11FDDA85F0044D454 /* SettingsScreen.sks in Resources */ = {isa = PBXBuildFile; fileRef = 17F89CAF1FDDA85F0044D454 /* SettingsScreen.sks */; };
@@ -112,6 +125,19 @@
 		174283F11FDB2ED4003D33A3 /* player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
 		174283F31FDB4377003D33A3 /* Tutorial.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tutorial.sks; sourceTree = "<group>"; };
 		174283F51FDB4386003D33A3 /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
+		17B305731FEAE6F9009E7668 /* blood5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blood5.png; sourceTree = "<group>"; };
+		17B305741FEAE6F9009E7668 /* blood6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blood6.png; sourceTree = "<group>"; };
+		17B305751FEAE6FA009E7668 /* blood2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blood2.png; sourceTree = "<group>"; };
+		17B305761FEAE6FA009E7668 /* blood12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blood12.png; sourceTree = "<group>"; };
+		17B305771FEAE6FA009E7668 /* blood7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blood7.png; sourceTree = "<group>"; };
+		17B305781FEAE6FA009E7668 /* blood10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blood10.png; sourceTree = "<group>"; };
+		17B305791FEAE6FA009E7668 /* blood11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blood11.png; sourceTree = "<group>"; };
+		17B3057A1FEAE6FA009E7668 /* blood4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blood4.png; sourceTree = "<group>"; };
+		17B3057B1FEAE6FA009E7668 /* blood3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blood3.png; sourceTree = "<group>"; };
+		17B3057C1FEAE6FA009E7668 /* blood1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blood1.png; sourceTree = "<group>"; };
+		17B3057D1FEAE6FA009E7668 /* blood9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blood9.png; sourceTree = "<group>"; };
+		17B3057E1FEAE6FB009E7668 /* blood13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blood13.png; sourceTree = "<group>"; };
+		17B3057F1FEAE6FB009E7668 /* blood8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blood8.png; sourceTree = "<group>"; };
 		17EC737F1FDCA8F800529F4F /* TutorialIntro.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TutorialIntro.sks; sourceTree = "<group>"; };
 		17EC73811FDCA90800529F4F /* TutorialIntro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialIntro.swift; sourceTree = "<group>"; };
 		17F89CAF1FDDA85F0044D454 /* SettingsScreen.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SettingsScreen.sks; sourceTree = "<group>"; };
@@ -260,6 +286,19 @@
 		17EC737D1FDCA84800529F4F /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				17B3057C1FEAE6FA009E7668 /* blood1.png */,
+				17B305751FEAE6FA009E7668 /* blood2.png */,
+				17B3057B1FEAE6FA009E7668 /* blood3.png */,
+				17B3057A1FEAE6FA009E7668 /* blood4.png */,
+				17B305731FEAE6F9009E7668 /* blood5.png */,
+				17B305741FEAE6F9009E7668 /* blood6.png */,
+				17B305771FEAE6FA009E7668 /* blood7.png */,
+				17B3057F1FEAE6FB009E7668 /* blood8.png */,
+				17B3057D1FEAE6FA009E7668 /* blood9.png */,
+				17B305781FEAE6FA009E7668 /* blood10.png */,
+				17B305791FEAE6FA009E7668 /* blood11.png */,
+				17B305761FEAE6FA009E7668 /* blood12.png */,
+				17B3057E1FEAE6FB009E7668 /* blood13.png */,
 				5E67575F1FDF3CF40050F441 /* shuffle.wav */,
 				5E67575D1FDF3CF00050F441 /* cardFlip.wav */,
 				17F89CCE1FDDB77E0044D454 /* menuIcon.png */,
@@ -546,6 +585,8 @@
 				17F89CC11FDDABE80044D454 /* card3.png in Resources */,
 				834726EC1FC6A322009A65FC /* OFL.txt in Resources */,
 				17F89CC31FDDABE80044D454 /* card5.png in Resources */,
+				17B305841FEAE6FB009E7668 /* blood7.png in Resources */,
+				17B305811FEAE6FB009E7668 /* blood6.png in Resources */,
 				834726F71FCB61D1009A65FC /* startStar2.png in Resources */,
 				838760621FCD136E00EBFD07 /* inverted10.png in Resources */,
 				17F89CCA1FDDABE80044D454 /* card11.png in Resources */,
@@ -554,13 +595,18 @@
 				17F89CC81FDDABE80044D454 /* card10.png in Resources */,
 				837AC18D1FCFA1F200A25F0B /* naming.sks in Resources */,
 				17F89CC21FDDABE80044D454 /* card4.png in Resources */,
+				17B3058A1FEAE6FB009E7668 /* blood9.png in Resources */,
 				834D25751FCE2DEC006B7CFD /* whiteStar.png in Resources */,
+				17B3058B1FEAE6FB009E7668 /* blood13.png in Resources */,
 				83718E4B1FD8BFC800ADFD28 /* passButton.png in Resources */,
+				17B305881FEAE6FB009E7668 /* blood3.png in Resources */,
 				83718E431FD8B60F00ADFD28 /* moFont.otf in Resources */,
 				5E6757651FDF41560050F441 /* CreditsScreen.sks in Resources */,
+				17B3058C1FEAE6FB009E7668 /* blood8.png in Resources */,
 				83718E401FD89CE600ADFD28 /* GameScene.sks in Resources */,
 				17F89CC51FDDABE80044D454 /* card7.png in Resources */,
 				834726F31FCB2BFA009A65FC /* starsParticles.scnp in Resources */,
+				17B305891FEAE6FB009E7668 /* blood1.png in Resources */,
 				8302F58F1FBBB6EA000EADE4 /* Main.storyboard in Resources */,
 				17F89CC71FDDABE80044D454 /* card9.png in Resources */,
 				838760691FCD136E00EBFD07 /* inverted4.png in Resources */,
@@ -572,6 +618,7 @@
 				838760661FCD136E00EBFD07 /* inverted3.png in Resources */,
 				838760651FCD136E00EBFD07 /* inverted2.png in Resources */,
 				838760681FCD136E00EBFD07 /* inverted1.png in Resources */,
+				17B305861FEAE6FB009E7668 /* blood11.png in Resources */,
 				838760611FCD136E00EBFD07 /* inverted5.png in Resources */,
 				838760601FCD136E00EBFD07 /* inverted6.png in Resources */,
 				838760641FCD136E00EBFD07 /* inverted8.png in Resources */,
@@ -579,11 +626,13 @@
 				8302F5911FBBB6EA000EADE4 /* Assets.xcassets in Resources */,
 				5E6757601FDF3CF40050F441 /* shuffle.wav in Resources */,
 				834726EA1FC6A322009A65FC /* Eunomia-Light.otf in Resources */,
+				17B305831FEAE6FB009E7668 /* blood12.png in Resources */,
 				837AC1911FCFACDC00A25F0B /* constellation1.png in Resources */,
 				838760511FCD135500EBFD07 /* inverted12.png in Resources */,
 				174283F41FDB4377003D33A3 /* Tutorial.sks in Resources */,
 				834726EB1FC6A322009A65FC /* Eunomiawfe.otf in Resources */,
 				8302F5941FBBB6EA000EADE4 /* LaunchScreen.storyboard in Resources */,
+				17B305871FEAE6FB009E7668 /* blood4.png in Resources */,
 				8387605F1FCD136E00EBFD07 /* inverted9.png in Resources */,
 				8387605E1FCD136E00EBFD07 /* inverted7.png in Resources */,
 				17F89CC41FDDABE80044D454 /* card6.png in Resources */,
@@ -596,6 +645,9 @@
 				838760671FCD136E00EBFD07 /* inverted13.png in Resources */,
 				834D25711FCD2C7A006B7CFD /* glowOrb.png in Resources */,
 				834726D71FC69C95009A65FC /* newMenu.sks in Resources */,
+				17B305851FEAE6FB009E7668 /* blood10.png in Resources */,
+				17B305821FEAE6FB009E7668 /* blood2.png in Resources */,
+				17B305801FEAE6FB009E7668 /* blood5.png in Resources */,
 				5E67575E1FDF3CF00050F441 /* cardFlip.wav in Resources */,
 				837AC1951FCFADA600A25F0B /* constellation3.png in Resources */,
 				17F89CCF1FDDB77E0044D454 /* menuIcon.png in Resources */,

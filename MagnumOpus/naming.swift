@@ -102,7 +102,7 @@ class naming: SKScene {
                         GameViewController.playerOneName = playerOneText
                     }
                     
-                    let playerTwoText = playerOneBox.text!.uppercased()
+                    let playerTwoText = playerTwoBox.text!.uppercased()
                     
                     if(playerTwoText.characters.count > maxLength){
                         var shortenedName = String()
@@ -113,6 +113,8 @@ class naming: SKScene {
                         GameViewController.playerTwoName = shortenedName
                     } else {
                         GameViewController.playerTwoName = playerTwoText
+
+
                     }
 
                     playerOneBox.removeFromSuperview()

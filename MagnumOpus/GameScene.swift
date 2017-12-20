@@ -94,13 +94,8 @@ class GameScene: SKScene {
         for p : Player in players{
             playersInRound.append(p)
             
-            if(p.drawFreshHand()){
-                win(p: p, message: "\(p.name) wins!")
-                
-            //This else if is untested!
-            } else if(p.drawDeck.discardPile.deck.count <= 0 && p.drawDeck.deck.count <= 0){
-                win(p: players[(p.playerNum+1)%2], message: "\(p.name) defaults!")
-            }
+            p.drawFreshHand()
+
         }
         
         self.childNode(withName: "StoreBackground")!.position = CGPoint(x: 0, y: 150 + (534 * currentPlayer!.playerNum))
@@ -115,10 +110,10 @@ class GameScene: SKScene {
         winMessage.text = message
         winMessage.zPosition = 200
         winMessage.fontSize = 96
-        winMessage.position = CGPoint(x: store.parent.frame.width / 2, y: store.parent.frame.height / 2)
+        winMessage.position = CGPoint(x: store.parent.frame.width / 2 - 40, y: store.parent.frame.height / 2)
         winMessage.alpha = 0
         
-        winMessage.run(SKAction.fadeIn(withDuration: 1))
+        winMessage.run(SKAction.fadeIn(withDuration: 0.5))
         
         store.parent.addChild(winMessage)
         
@@ -237,9 +232,6 @@ class GameScene: SKScene {
                     
                         
                     GameViewController.instance.present(alert, animated: true, completion: nil)
-                    
-                    
-                    
                 }
             }
         }
@@ -258,7 +250,11 @@ class GameScene: SKScene {
             playersInRound.append(p)
             
             if(p.drawFreshHand()){
-                print( "Player name has won!")
+                win(p: p, message: "\(p.name) wins!")
+                
+                //This else if is untested!
+            } else if(p.drawDeck.discardPile.deck.count <= 0 && p.drawDeck.deck.count <= 0){
+                win(p: players[(p.playerNum+1)%2], message: "\(players[(p.playerNum+1)%2].name) defaults!")
             }
         }
         
