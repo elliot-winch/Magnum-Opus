@@ -2,7 +2,7 @@
 //  CreditsScreen.swift
 //  MagnumOpus
 //
-//  Created by Rebecca Tolpin on 12/10/17.
+//  Created by "Rebecca Tolpin" on 12/10/17.
 //  Copyright © 2017 nyu.edu. All rights reserved.
 //
 
@@ -27,17 +27,17 @@ class CreditsScreen: SKScene {
         let creditLabelEW = SKLabelNode(fontNamed: "My Font")
         creditLabelEW.text = "Elliot Winch"
         creditLabelEW.fontSize = 50
-        creditLabelEW.position = CGPoint(x: 8, y: 254)
+        creditLabelEW.position = CGPoint(x: 0, y: 250)
         creditLabelEW.zPosition = 0.1
         creditLabelEW.verticalAlignmentMode = .center
-        creditLabelEW.horizontalAlignmentMode = .right
+        creditLabelEW.horizontalAlignmentMode = .center
         
         self.addChild(creditLabelEW)
         
         let creditLabelND = SKLabelNode(fontNamed: "My Font")
         creditLabelND.text = "Nina Demirjian"
         creditLabelND.fontSize = 50
-        creditLabelND.position = CGPoint(x: 35, y: 13)
+        creditLabelND.position = CGPoint(x: 0, y: -40)
         creditLabelND.zPosition = 0.1
         creditLabelND.verticalAlignmentMode = .center
         creditLabelND.horizontalAlignmentMode = .center
@@ -48,7 +48,7 @@ class CreditsScreen: SKScene {
         let creditLabelRT = SKLabelNode(fontNamed: "My Font")
         creditLabelRT.text = "Rebecca Tolpin"
         creditLabelRT.fontSize = 50
-        creditLabelRT.position = CGPoint(x: 20, y: -334)
+        creditLabelRT.position = CGPoint(x: 0, y: -330)
         creditLabelRT.zPosition = 0.1
         creditLabelRT.verticalAlignmentMode = .center
         creditLabelRT.horizontalAlignmentMode = .center

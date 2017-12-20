@@ -39,6 +39,30 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        let quitButton = self.childNode(withName: "QuitButton")
+        let passButton = self.childNode(withName: "PassButton")
+        let quitNode = quitButton as! SKSpriteNode
+        let passNode = passButton as! SKSpriteNode
+        
+        //If the standard texture is selected, set the buttons to the
+        //green version
+        if(cardSetSelected == "inverted"){
+            quitNode.texture = SKTexture(imageNamed: "quitButton")
+            passNode.texture = SKTexture(imageNamed: "passButton")
+            
+        }
+            //If the voodoo texture is selected, set the buttons to the
+            //purple version
+        else if(cardSetSelected == "card"){
+            quitNode.texture = SKTexture(imageNamed: "quitVoodoo")
+            passNode.texture = SKTexture(imageNamed: "passVoodoo")
+        }
+            //If the blood moon texture is selected, set the buttons to the
+            //red version
+        else if (cardSetSelected == "blood"){
+            quitNode.texture = SKTexture(imageNamed: "quitBlood")
+            passNode.texture = SKTexture(imageNamed: "passBlood")
+        }
         
         //unfortunate design error
         playerOneName = GameViewController.playerTwoName

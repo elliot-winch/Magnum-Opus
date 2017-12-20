@@ -2,7 +2,7 @@
 //  SettingsScreen.swift
 //  MagnumOpus
 //
-//  Created by Rebecca Tolpin on 12/9/17.
+//  Created by "Rebecca Tolpin" on 12/9/17.
 //  Copyright © 2017 nyu.edu. All rights reserved.
 //
 
