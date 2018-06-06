@@ -26,7 +26,8 @@ public class Store{
             spaces.append(space)
         }
         
-        //Ideally this should be nil but Swift wouldn't let me do that
+        //Ideally this should be nil but Swift wouldn't let me do that (Elliot from 2017)
+        //Elliot from 2018 say this is weirdly set up but okay
         parent = SKNode()
     }
     

@@ -21,7 +21,10 @@ class GameScene: SKScene {
     var passingPlayer: Player?
     var currentPlayerIndex : Int
     var store : Store
-        
+    
+    private var topOfScreen : CGFloat = 0
+    private var rightOfScreen : CGFloat = 0
+    
     required init?(coder aDecoder: NSCoder) {
         players = [Player]()
         playersInRound = [Player]()
@@ -30,6 +33,10 @@ class GameScene: SKScene {
         self.currentPlayerIndex = 0
         
         super.init(coder: aDecoder)
+        
+        topOfScreen = self.size.height
+        rightOfScreen = self.size.width
+        
         players.append(Player(id: 0, handSize: 7, parent: self, name : ""))
         players.append(Player(id: 1, handSize: 7, parent: self, name : ""))
         currentPlayerIndex = 0//Int(arc4random_uniform(UInt32(players.count)))
@@ -76,7 +83,8 @@ class GameScene: SKScene {
         nameLabelPlayerOne.name = "Player One Label"
         nameLabelPlayerOne.text = playerOneName
         
-        nameLabelPlayerOne.position = CGPoint(x: 360, y: 450)
+        nameLabelPlayerOne.position = CGPoint(x: rightOfScreen / 2, y: (1/3) * topOfScreen)
+        
         GameScene.setLabelToStandard(label: nameLabelPlayerOne)
         self.addChild(nameLabelPlayerOne)
 
@@ -87,7 +95,8 @@ class GameScene: SKScene {
         nameLabelPlayerTwo.text = playerTwoName
         
         nameLabelPlayerTwo.zRotation = CGFloat.pi
-        nameLabelPlayerTwo.position = CGPoint(x: 360, y: 900)
+        nameLabelPlayerTwo.position = CGPoint(x: rightOfScreen / 2, y: (2/3) * topOfScreen)
+
         GameScene.setLabelToStandard(label: nameLabelPlayerTwo)
         self.addChild(nameLabelPlayerTwo)
         
@@ -122,7 +131,8 @@ class GameScene: SKScene {
 
         }
         
-        self.childNode(withName: "StoreBackground")!.position = CGPoint(x: 0, y: 150 + (534 * currentPlayer!.playerNum))
+        self.childNode(withName: "StoreBackground")!.position = CGPoint(x: 0, y: topOfScreen * (0.112 + (0.4 * CGFloat(currentPlayer!.playerNum))))
+
         store.roundStart()
     }
     
@@ -170,7 +180,6 @@ class GameScene: SKScene {
         label.horizontalAlignmentMode = .center
         label.verticalAlignmentMode = .center
         label.zPosition = 5
-        
     }
     
 
@@ -308,12 +317,15 @@ class GameScene: SKScene {
     
     func animateMovingStore(withDelay: Double) {
         let wait = SKAction.wait(forDuration: withDelay)
-        let moveAction = SKAction.move(to: CGPoint(x: 0, y: 150 + (484 * currentPlayer!.playerNum) ), duration: 0.5)
+        let moveAction = SKAction.move(to: CGPoint(x: 0, y: topOfScreen *  (0.112 + (0.365 * CGFloat(currentPlayer!.playerNum)))), duration: 0.5)
+        
+        
         moveAction.timingMode = .easeInEaseOut
         let sequence = SKAction.sequence([wait, moveAction])
         self.childNode(withName: "StoreBackground")!.run(sequence)
         
-        let buttonMoveAction = SKAction.move(by: CGVector(dx: 0, dy: (currentPlayer!.playerNum == 0 ? 186 : -186)), duration: 0.5)
+        let buttonMoveAction = SKAction.move(by: CGVector(dx: 0, dy: topOfScreen * 0.139 * (currentPlayer!.playerNum == 0 ? 1 : -1)), duration: 0.5)
+        
         let buttonRotate = SKAction.rotate(byAngle: CGFloat.pi, duration: 0)
         buttonMoveAction.timingMode = .easeInEaseOut
         let buttonSequence = SKAction.sequence([SKAction.wait(forDuration: withDelay + 0.3), buttonRotate, buttonMoveAction])

@@ -23,6 +23,7 @@ public class Player {
     var name : String
     
     init(id: Int, handSize: Int, parent: SKNode, name: String){
+        
         playerNum = id
         drawDeck = DrawDeck()
         hand = Hand(handSize: handSize)
@@ -149,8 +150,15 @@ public class Player {
         
         hand.sort(reversed: playerNum == 0)
         
+        let topOfScreen = parent.scene!.size.height
+        
         for i in 0..<hand.hand.count {
-            let moveAnimation = SKAction.move(to: CGPoint(x:i * 80 + 120, y: 1334 - 200 - (playerNum * 900)), duration: 0.3)
+            
+            let moveAnimation = SKAction.move(to: CGPoint(x:CGFloat(i * 80 + 120), y: topOfScreen - 200.0 - (CGFloat(playerNum) * 900.0)), duration: 0.3)
+            
+            print("Y up is \((1334 - 200) / parent.scene!.size.height) of screen and down \((1334 - 200 - 900) / parent.scene!.size.height)% of screen")
+
+            
             moveAnimation.timingMode = .easeInEaseOut
             hand.hand[i].run(moveAnimation)
             hand.hand[i].zPosition = CGFloat(i) + 100
@@ -158,7 +166,7 @@ public class Player {
             hand.hand[i].run(SKAction.sequence(
                 [SKAction.wait(forDuration: 0.3),
                  SKAction.customAction(withDuration: 0.01) {node, elapsedTime in
-                    self.hand.hand[i].zPosition = self.hand.hand[i].zPosition - CGFloat(100)}
+                    self.hand.hand[i].zPosition = self.hand.hand[i].zPosition - CGFloat(50)}
                 ]))
         }
         
